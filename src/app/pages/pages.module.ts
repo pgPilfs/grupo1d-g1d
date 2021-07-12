@@ -17,8 +17,8 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
     PaginaPrincipalComponent
   ],
   imports: [
-    CommonModule
-  ],
-  exports: [HomeComponent, InicioSesionComponent, ConocenosComponent,RegistrateComponent]
+    CommonModule 
+  ],    
+  exports: [HomeComponent, InicioSesionComponent, ConocenosComponent,RegistrateComponent, PaginaPrincipalComponent ]
 })
 export class PagesModule { }
