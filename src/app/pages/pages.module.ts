@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { ConocenosComponent } from './conocenos/conocenos.component';
 import { RegistrateComponent } from './registrate/registrate.component';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 
 
@@ -12,7 +13,8 @@ import { RegistrateComponent } from './registrate/registrate.component';
     HomeComponent,
     InicioSesionComponent,
     ConocenosComponent,
-    RegistrateComponent
+    RegistrateComponent,
+    PaginaPrincipalComponent
   ],
   imports: [
     CommonModule
