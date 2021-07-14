@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+    background: rgb(159,25,171);
+    background: linear-gradient(120deg, rgba(159,25,171,1) 0%, rgba(122,29,201,1) 100%);
+}
