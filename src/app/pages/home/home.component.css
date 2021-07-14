@@ -1,0 +1,112 @@
+.container{ 
+    flex-direction: row;
+}
+
+.title{ 
+    position: absolute;
+    width: 681px;
+    height: 102px;
+    left: 10%;
+    top: 25%;
+
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 3.75rem;
+    line-height: 51px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.065em;
+
+    color: #CE1CDC;
+}
+
+.texto-1 {
+    position: absolute;
+    width: 722px;
+    height: 290px;
+    left: 10%;
+    top: 30%;
+
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 103.69%;
+
+ display: flex;
+    align-items: center;
+    letter-spacing: 0.016em;
+
+    color: #000000;
+}
+
+.texto-2{
+    position: absolute;
+    width: 642px;
+    height: 149px;
+    left: 10%;
+    top: 55%;
+
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 103.69%;
+    /* or 21px */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.015em;
+
+    color: #000000;
+}
+
+
+.celu{
+position: absolute;
+height: 570px;
+left: 65%;
+top: 10%;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .celu {
+      top:74%;
+      left: 32%;
+      position: relative;
+      flex-direction: row;
+      height:160px;
+      transition: 1s linear;
+    }
+    .title{ 
+        position: relative;
+        width: auto;
+        height: auto;
+        display: flex;
+        font-size: 35px;
+    }
+    .texto-1{
+        position: relative;
+        width: auto;
+        height: auto;
+        font-size: 35px;
+    }
+
+    .texto-2{
+        position: relative;
+        width: auto;
+        height: auto;
+
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .celu {
+      flex-direction: column;
+      height:570px;
+      transition: s linear;
+    }
+  }
