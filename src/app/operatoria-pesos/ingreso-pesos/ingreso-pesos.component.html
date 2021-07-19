@@ -1,1 +1,193 @@
-<p>ingreso-pesos works!</p>
+<!-- menu acordion-->
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+
+      <div class="callout bg-light border m-1" >
+        <h3 class="text-center">¿Como queres ingresar dinero?</h3>
+      </div>
+       <!--Tarjeta de debito-->
+      <h2 class="accordion-header" id="headingOne">
+            <h2 class="accordion-header"  id="headingOne">
+                <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Tarjeta de debito
+                </button>
+            </h2>
+      </h2>
+
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p class="h6">Ingresa el monto</p>
+          <div class="input-group">
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                <span class="input-group-text">$</span>
+                <span class="input-group-text">0.00</span>
+        
+          </div>
+
+          <input class="btn btn-primary m-2" type="submit" value="Enviar">
+
+          <hr>
+          <!--Formulario para agregar tarjeta de debito-->
+          <form >
+            <div class="row">
+                  <p class="h6">Agregar tarjeta de debito</p>
+                  <div class="col">
+                    <input type="text" class="form-control m-1" [formControl]="numero" placeholder="Numero de tarjeta" aria-label="Numero de tarjeta">
+                    <div  *ngIf = "numero.invalid && (numero.dirty || numero.touched)">
+                      <p *ngIf = "numero.errors?.required">
+                        El numero de la tarjeta es requerido
+                      </p>
+                      <p *ngIf = "numero.errors?.max">
+                        La tarjeta debe tener 16 digitos
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div class="col">
+                    <input type="date" class="form-control m-1" [formControl]="venc" placeholder="vencimiento" aria-label="Vencimiento">
+                    <div  *ngIf = "venc.invalid && (venc.dirty || venc.touched)">
+                      <p *ngIf = "venc.errors?.required">
+                        El vencimiento de la tarjeta es requerido
+                      </p>
+                    </div>
+                  </div>
+            </div>
+    
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control m-1" [formControl]="nombre" placeholder="Nombre del titular" aria-label="Nombre del titular">
+                <div  *ngIf = "nombreField.invalid && (nombreField.dirty || nombreField.touched)">
+                  <p *ngIf = "nombreField.errors?.required">
+                    El nombre del titular es requerido
+                  </p>
+                  <p *ngIf = "nombreField.errors?.max">
+                    El campo es de 20 digitos 
+                  </p>
+                </div>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control m-1" [formControl]="cvv"  placeholder="CVV" aria-label="CVV">
+                <div  *ngIf = "cvvField.invalid && (cvvField.dirty || cvvField.touched)">
+                  <p *ngIf = "cvvField.errors?.required">
+                    El numero de CVV es requerido
+                  </p>
+                  <p *ngIf = "cvvField.errors?.max">
+                    El numero debe tener 3 digitos 
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <input class="btn btn-primary m-2" type="submit" value="Confirmar" (click)="registroTarjeta()">
+          </form>
+
+        </div>
+        <!--Mensaje de tarjeta agregada exitosamente-->
+        <div *ngIf="registro">
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </symbol>
+              <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+              </symbol>
+              <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </symbol>
+          </svg>    
+
+          <div class="alert alert-success d-flex align-items-center" role="alert">
+              <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+              <div>
+                Tarjeta agregada exitosamente
+              </div>
+          </div>
+        </div>
+
+    </div>
+    <!--Transferencia-->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Trasnferencia
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+                <div class="title-cvu">
+                    Copia tu cvu o alias para ingresar o transferir dinero desde otra cuenta.
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="ui-row__col ui-row__col--content">
+                            <div class="ui-action-row__content">
+                                <div class="ui-action-row__title u-truncate">
+                                    CVU
+                                </div>
+                                <div class="ui-action-row__description">
+                                    0000003100090272194567
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                            <div class="ui-row__col ui-row__col--content">
+                                <div class="ui-action-row__content">
+                                    <div class="ui-action-row__title u-truncate">
+                                    Alias
+                                    </div>
+                                    <div class="ui-action-row__description">
+                                        {{alias}}
+                                    </div>
+                                </div>
+                            </div>
+                    </li> 
+                </ul>
+
+                <hr>
+                <!--Cambiar Alias-->
+                <div>
+                    <h6>
+                        ¿Queres cambiar tu Alias?
+                    </h6>
+                  
+                    <div class="form-floating">
+                      <input [(ngModel)]="alias" type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="button-addon2">
+                      <button class="btn btn-outline-secondary m-2" type="button" id="button-addon2" >Cambiar</button>
+                      <label for="floatingTextarea">Nuevo Alias</label>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+    <!--Efectivo-->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Efectivo
+          </button>
+        </h2>
+        <!--Aca utilice una card para mostrar la info-->
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+                <div class="card border-dark mb-3"  style="max-width: 18rem;">
+                    <div class="card-header bg-transparent border-dark">
+                        Codigo
+                    </div>
+                    <div class="card-body text-dark">
+                        <h5 class="card-title">90272 19456</h5>
+                        <p class="card-text">Usá este código siempre que quieras ingresar dinero a tu cuenta. El monto mínimo es de $ 50.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-dark">
+                        Mostrale este codigo al cajero en: Pagofacil o Rapipago
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+      
