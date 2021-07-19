@@ -1,36 +1,26 @@
-.container{ 
-    flex-direction: row;
-}
+
+
+.presentation{ 
+    font-family: Roboto;
+    padding-left: 10%;
+    padding-top: 5%;
+
+   }
 
 .title{ 
-    position: absolute;
-    width: 681px;
-    height: 102px;
-    left: 10%;
-    top: 25%;
-
-    font-family: Roboto;
     font-style: italic;
-    font-weight: bold;
+    font-weight: 900;
     font-size: 3.75rem;
     line-height: 51px;
     display: flex;
     align-items: center;
-    letter-spacing: -0.065em;
-
+    letter-spacing: -0.055em;
     color: #CE1CDC;
 }
 
 .texto-1 {
-    position: absolute;
-    width: 722px;
-    height: 290px;
-    left: 10%;
-    top: 30%;
-
-    font-family: Roboto;
-    font-style: italic;
-    font-weight: 500;
+   font-style: italic;
+    font-weight: medium;
     font-size: 35px;
     line-height: 103.69%;
 
@@ -42,18 +32,12 @@
 }
 
 .texto-2{
-    position: absolute;
-    width: 642px;
-    height: 149px;
-    left: 10%;
-    top: 55%;
 
-    font-family: Roboto;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 20px;
     line-height: 103.69%;
-    /* or 21px */
+
 
     display: flex;
     align-items: center;
@@ -75,15 +59,17 @@ top: 10%;
 .link{
     color: #7A1DC9;
     cursor: pointer;
-    margin-top: 100px;
+    padding-left: 20px;
 }
 
-
+span {
+    font-size: 12px;
+}
 
 @media screen and (max-width: 900px) {
 
     .celu {
-      top:74%;
+      top:auto;
       left: 32%;
       position: relative;
       flex-direction: row;
@@ -91,27 +77,16 @@ top: 10%;
       transition: 1s linear;
     }
     .title{ 
-        position: relative;
-        width: auto;
-        height: auto;
-        display: flex;
-        font-size: 35px;
+        
+        font-size: 40px;
     }
     .texto-1{
-        position: relative;
-        width: auto;
-        height: auto;
+        
         font-size: 35px;
-        margin-right: 20px;
-    }
-
-    .texto-2{
-        position: relative;
-        width: auto;
-        height: auto;
-        margin-right: 20px;
 
     }
+
+
   }
 
   @media screen and (min-width: 900px) {
@@ -122,30 +97,3 @@ top: 10%;
     }
   }
 
-.button-1 {
-    position: absolute;
-    left: 11.67%;
-    right: 72.01%;
-    top: 76.71%;
-    bottom: 16.71%;
-    color: #FFFFFF;
-    border: 1px solid #ffffff;
-    width:170px;
-    background-color: #7A1DC9;
-    border-radius: 15px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    transition-duration: 0.4s;
-}
-
-.button-1:hover{
-    transition-duration: 0.2s;
-    background-color: white;
-    border: 2px solid #7A1DC9;
-    color:#7A1DC9;
-    box-shadow: 7px 7px #000000;
-
-}
