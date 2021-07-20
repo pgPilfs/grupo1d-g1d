@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RetiroPesosComponent implements OnInit {
 
+  saldo:number = 400;
+
+  retirar:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  validarSaldo(){
+    if (this.saldo == 0){
+      alert("No tiene saldo suficiente")
+    }else{
+      this.retirar = true;
+    }
   }
 
 }
