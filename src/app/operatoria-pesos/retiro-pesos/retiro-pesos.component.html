@@ -1,1 +1,78 @@
-<p>retiro-pesos works!</p>
+<div class="mb-3">
+    <h4>Retiro de dinero</h4>
+</div>
+<div class= "row">
+    <div class = "col-sm-4 ">
+        <p>Tu saldo actual es de: </p>
+    </div>
+    <div class= "col-sm-2 bg-light">
+        <p>
+            {{saldo |currency}}
+        </p>
+    </div>
+</div>
+
+<hr>
+
+<div>
+    <h5>¿Desea retirar dinero?</h5>
+
+</div>
+
+<div class="input-group">
+    <div class ="col-sm-3 m-2">
+        <input type="text" class="form-control" placeholder="Ingresa el monto" aria-label="Retirar" aria-describedby="button-addon2">
+    </div>
+    
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary m-2 " type="button" id="button-addon2" (click)="validarSaldo()">Retirar</button>
+    </div>
+</div>
+
+<div *ngIf="retirar" class="accordion m-3" id="accordionExample">
+    <div class="accordion-item">
+
+      <div class="callout bg-light border m-1" >
+        <h5 class="text-center">Elegi como queres retirar dinero</h5>
+      </div>
+
+      <h2 class="accordion-header" id="headingOne">
+        <h2 class="accordion-header"  id="headingOne">
+            <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Retirar de cajero automatico
+            </button>
+        </h2>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <p>Para extraer efectivo con tu tarjeta debes acercarte a cualquier cajero y seguir estos pasos: </p>
+            <ul class="list-group">
+                <li class="list-group-item">1- Ingresa tu pin de extracciones</li>
+                <li class="list-group-item">2- Elegi la opcion extraccion rapida</li>
+                <li class="list-group-item">3- Ingresa el monto que queres extraer</li>
+                <li class="list-group-item">¡Listo! Vas a poder sacar hasta $8000 por dia</li>
+                
+            </ul>          
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Retirar en rapipago o pagofacil
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <p>Acercate a la caja con este codigo y tu DNI </p>
+          <div class="card border-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Codigo de retiro efectivo</div>
+            <div class="card-body text-dark">
+              <h6 class="card-title">Codigo valido para Rapipago o Pagofacil</h6>
+              <h3 class="card-text">3334 9986</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
