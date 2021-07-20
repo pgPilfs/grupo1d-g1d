@@ -6,6 +6,7 @@ import { ConsultaSaldoComponent } from './consulta-saldo/consulta-saldo.componen
 import { GiroDescubiertoComponent } from './giro-descubierto/giro-descubierto.component';
 import { UltimasOperacionesComponent } from './ultimas-operaciones/ultimas-operaciones.component';
 import { TransferenciasComponent } from './transferencias/transferencias.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,7 @@ import { TransferenciasComponent } from './transferencias/transferencias.compone
     TransferenciasComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, FormsModule, ReactiveFormsModule
   ],
   exports: [IngresoPesosComponent, RetiroPesosComponent, ConsultaSaldoComponent, GiroDescubiertoComponent, UltimasOperacionesComponent, TransferenciasComponent]
 })

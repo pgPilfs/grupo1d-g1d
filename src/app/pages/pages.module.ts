@@ -5,6 +5,7 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { ConocenosComponent } from './conocenos/conocenos.component';
 import { RegistrateComponent } from './registrate/registrate.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import { OperatoriaPesosModule } from '../operatoria-pesos/operatoria-pesos.module';
 
 
 
@@ -17,7 +18,9 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
     PaginaPrincipalComponent
   ],
   imports: [
-    CommonModule 
+    CommonModule,
+    OperatoriaPesosModule
+  
   ],    
   exports: [HomeComponent, InicioSesionComponent, ConocenosComponent,RegistrateComponent, PaginaPrincipalComponent ]
 })
