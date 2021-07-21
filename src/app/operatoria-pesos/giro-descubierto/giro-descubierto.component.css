@@ -45,7 +45,7 @@
     
     @media screen and (max-width: 900px) {
     
-        .celu {
+        .orca {
           top:auto;
           left: 32%;
           position: relative;
@@ -67,7 +67,7 @@
       }
     
       @media screen and (min-width: 900px) {
-        .celu {
+        .orca {
           flex-direction: column;
           height:570px;
           transition: s linear;
