@@ -18,7 +18,7 @@
         <div class="accordion-body">
           <p class="h6">Ingresa el monto</p>
           <div class="input-group">
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                <input type="text" class="form-control"  onkeypress="return event.charCode >= 48" min="1" aria-label="Dollar amount (with dot and two decimal places)">
                 <span class="input-group-text">$</span>
                 <span class="input-group-text">0.00</span>
         

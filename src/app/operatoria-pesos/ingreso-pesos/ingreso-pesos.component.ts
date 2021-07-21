@@ -11,6 +11,7 @@ import { FormControl, Validators} from '@angular/forms';
 export class IngresoPesosComponent implements OnInit {
   registro:boolean = false;
   registro2:boolean = false;
+  
 
   alias:string = "MANZANA.PELOTA.MANO"
 
