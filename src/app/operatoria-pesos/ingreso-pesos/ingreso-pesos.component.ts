@@ -47,4 +47,8 @@ export class IngresoPesosComponent implements OnInit {
     return this.cvv;
   }
 
+  get vencField(){
+    return this.venc;
+  }
+
 }
