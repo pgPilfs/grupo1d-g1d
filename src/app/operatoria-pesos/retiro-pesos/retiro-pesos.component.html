@@ -21,7 +21,12 @@
 
 <div class="input-group">
     <div class ="col-sm-3 m-2">
-        <input type="text" class="form-control" placeholder="Ingresa el monto" aria-label="Retirar" aria-describedby="button-addon2">
+        <input type="text" class="form-control" [formControl]="retiroDinero" placeholder="Ingresa el monto" aria-label="Retirar" aria-describedby="button-addon2">
+        <div  *ngIf = "retiroField.invalid && (retiroField.dirty || retiroField.touched)">
+          <p *ngIf = "retiroField.errors?.required">
+            El campo es requerido
+          </p>
+        </div>
     </div>
     
     <div class="input-group-append">
