@@ -11,5 +11,6 @@ export class GiroDescubiertoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }
