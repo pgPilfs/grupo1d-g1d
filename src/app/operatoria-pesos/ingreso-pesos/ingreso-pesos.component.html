@@ -37,7 +37,7 @@
                       <p *ngIf = "numero.errors?.required">
                         El numero de la tarjeta es requerido
                       </p>
-                      <p *ngIf = "numero.errors?.max">
+                      <p *ngIf = "numeroField.errors?.max || numeroField.errors?.min">
                         La tarjeta debe tener 16 digitos
                       </p>
                     </div>
@@ -60,7 +60,7 @@
                   <p *ngIf = "nombreField.errors?.required">
                     El nombre del titular es requerido
                   </p>
-                  <p *ngIf = "nombreField.errors?.max">
+                  <p *ngIf = "nombreField.errors?.max || nombreField.errors?.min">
                     El campo es de 20 digitos 
                   </p>
                 </div>
@@ -71,7 +71,7 @@
                   <p *ngIf = "cvvField.errors?.required">
                     El numero de CVV es requerido
                   </p>
-                  <p *ngIf = "cvvField.errors?.max">
+                  <p *ngIf = "cvvField.errors?.max || cvvField.errors?.min">
                     El numero debe tener 3 digitos 
                   </p>
                 </div>
