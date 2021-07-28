@@ -1,0 +1,27 @@
+h3{
+    color: #7A1DC9;
+    font-weight: medium;
+    line-height: 103.69%;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.016em;
+
+}
+
+.celu{
+    transition: 1s;
+    position: absolute;
+    height: 600px;
+    left: 60%;
+    top: 10%;
+    }
+
+
+@media screen and (min-width: 900px) {
+    .celu {
+          flex-direction: column;
+          height:570px;
+          transition: s linear;
+        }
+      }
