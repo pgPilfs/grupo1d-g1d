@@ -15,10 +15,10 @@ export class IngresoPesosComponent implements OnInit {
 
   alias:string = "MANZANA.PELOTA.MANO"
 
-  nombre = new FormControl('', [Validators.required, Validators.max(10)] );
-  numero = new FormControl('', [Validators.required, Validators.max(16)] );
+  nombre = new FormControl('', [Validators.required, Validators.min(1), Validators.max(10)] );
+  numero = new FormControl('', [Validators.required, Validators.min(1), Validators.max(16)] );
   venc = new FormControl('', [Validators.required] );
-  cvv = new FormControl('', [Validators.required, Validators.max(3)] );
+  cvv = new FormControl('', [Validators.required, Validators.min(1), Validators.max(3)] );
 
   constructor() {
    

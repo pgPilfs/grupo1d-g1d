@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'retiro-pesos', component: RetiroPesosComponent},
   {path: 'transferencias', component: TransferenciasComponent},
   {path: 'pagina-principal', component: PaginaPrincipalComponent},  
-  {path: " ", redirectTo: '/home', pathMatch: 'full'}
+  {path: "", redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
