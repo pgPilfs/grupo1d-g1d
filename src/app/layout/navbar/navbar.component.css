@@ -7,9 +7,10 @@
 }
 
 .itemNav:hover {
-    border:2px solid #e8e8e9;
+    border:1px solid #e8e8e9;
     border-radius: 15px;
     background-color: rgb(126, 31, 113);
+    transition: background-color .5s;
 }
 
 

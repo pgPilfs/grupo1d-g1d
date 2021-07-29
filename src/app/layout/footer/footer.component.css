@@ -1,0 +1,8 @@
+.text-white{
+    text-decoration:none;
+}
+      a:hover {
+        background-color: rgb(111, 36, 134);
+         transition: background-color .5s;
+        
+      }
