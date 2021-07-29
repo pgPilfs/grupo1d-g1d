@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-body {
-    background: rgb(99, 10, 107);
-    background: linear-gradient(120deg, rgba(159,25,171,1) 0%, rgba(122,29,201,1) 100%);
-}
 
 .button-1 {
     color: #FFFFFF;
@@ -26,4 +22,12 @@ body {
     color:#7A1DC9;
     box-shadow: 7px 7px #000000;
 
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ng-sidebar {
+    background: #7A1DC9;
+    width:13rem;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.404);
 }
