@@ -68,21 +68,24 @@
                 
                 <div class="col">
                     <div class="input-group">
-                    <input type="text" class="form-control m-1"  [formControl]="numero"  placeholder="Ingrese CBU a tranferir" aria-label="Ingrese CBU a transferir">
+                    <input type="text" class="form-control m-1"  [formControl]="CBU"  placeholder="Ingrese CBU a tranferir" aria-label="Ingrese CBU a transferir">
                     
                         
                 
                   </div>
-                    <div  *ngIf = "numero.invalid && (numero.dirty || numero.touched)">
-                        <p *ngIf = "numero.errors?.required">
+
+                    <div  *ngIf = "CBUField.invalid && (CBUField.dirty || CBUField.touched)" class='text-danger'>
+                        <p *ngIf = "CBUField.errors?.required">
                           El CBU a tranferir es requerido
                         </p>
-                       
+                        <p *ngIf = "CBUField.errors?.max || CBUField.errors?.min">
+                          El numero debe contener 22 digitos
+                        </p>
                 
             
-              </div>
+                </div>
     
-              <input class="btn btn-primary m-2" type="submit" value="Ingresar">
+              <input class="btn btn m-2" type="submit" value="Ingresar">
     
               <hr>
            
@@ -92,6 +95,7 @@
           </div>
          </div>
       </div>
+
    <!--  Transferencia pesos -->
    <div class="accordion" id="accordionExample">
     <div class="accordion-item">
@@ -112,27 +116,28 @@
             
             <div class="col">
                 <div class="input-group">
-                <input type="text" class="form-control m-1"  [formControl]="numero"  placeholder="Ingrese monto a transferir" aria-label="Ingrese monto a transferir">
-                
-                    <span class="input-group-text">$</span>
-                    <span class="input-group-text">0.00</span>
+                  <input type="text" class="form-control m-1"  [formControl]="montoPesos"  placeholder="Ingrese monto a transferir" aria-label="Ingrese monto a transferir">
+                  
+                      <span class="input-group-text">$</span>
+                      <span class="input-group-text">0.00</span>
             
-              </div>
-                <div  *ngIf = "numero.invalid && (numero.dirty || numero.touched)">
-                    <p *ngIf = "numero.errors?.required">
-                      El monto a tranferir es requerido
-                    </p>
-                    <p *ngIf = "numero.errors?.max">
-                      El monto no puede superar los 16 digitos
-                    </p>
-                  </div>
                 </div>
                 
+                  <div  *ngIf = "montoPesosField.invalid && (montoPesosField.dirty || montoPesosField.touched)" class='text-danger'>
+                      <p *ngIf = "montoPesosField.errors?.required">
+                        El monto a tranferir es requerido
+                      </p>
+                      <p *ngIf ="montoPesosField.errors?.max || montoPesosField.errors?.min">
+                        El monto no puede superar los 40.0000
+                      </p>
+                  </div>
+                
+                <input class="btn m-2" type="submit" value="Transferir">
             
         
           </div>
 
-          <input class="btn btn-primary m-2" type="submit" value="Transferir">
+          
 
           <hr>
        
@@ -142,6 +147,7 @@
       </div>
      </div>
   </div>
+
 <!--   Transferencia dolares -->   
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
@@ -158,22 +164,22 @@
       <p class="h6">Ingresa dinero en dolares a transferir</p>
       <div class="col">
 
-      <div class="input-group">
-            <input type="text" class="form-control m-1"  [formControl]="numero"  placeholder="Ingrese monto a transferir" aria-label="Ingrese monto a transferir">
-            <span class="input-group-text">$</span>
-            <span class="input-group-text">0.00</span>
-    
+        <div class="input-group">
+              <input type="text" class="form-control m-1"  [formControl]="montoDolares"  placeholder="Ingrese monto a transferir" aria-label="Ingrese monto a transferir">
+              <span class="input-group-text">$</span>
+              <span class="input-group-text">0.00</span>
+      
+        </div>
+          <div  *ngIf = " montoDolaresField.invalid && (montoDolaresField.dirty || montoDolaresField.touched)" class='text-danger'>
+            <p *ngIf = "montoDolaresField.errors?.required">
+              El monto a tranferir es requerido
+            </p>
+            <p *ngIf ="montoDolaresField.errors?.max || montoDolaresField.errors?.min">
+              El monto no puede superar los 2000
+            </p>
+          </div>
       </div>
-      <div  *ngIf = "numero.invalid && (numero.dirty || numero.touched)">
-        <p *ngIf = "numero.errors?.required">
-          El monto a tranferir es requerido
-        </p>
-        <p *ngIf = "numero.errors?.max">
-          El monto no puede superar los 16 digitos
-        </p>
-      </div>
-      </div>
-      <input class="btn btn-primary m-2" type="submit" value="Transferir">
+      <input class="btn m-2" type="submit" value="Transferir">
 
       <hr>
    
@@ -183,42 +189,46 @@
    </div>
   </div>
 </div>
+
 <!-- transferir criptomedas -->
 <div class="accordion" id="accordionExample">
 <div class="accordion-item">
-  <h2 class="accordion-header" id="headingFive">
-    <h2 class="accordion-header"  id="headingFive">
-        <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-        Transferencia de dinero en criptomedas
-        </button>
-    </h2>
- </h2>
+      <h2 class="accordion-header" id="headingFive">
+        <h2 class="accordion-header"  id="headingFive">
+            <button class="accordion-button"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+            Transferencia de dinero en criptomedas
+            </button>
+        </h2>
+      </h2>
 
- <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
- <div class="accordion-body">
-  <p class="h6">Ingresa dinero en criptomedas a transferir</p>
-  <div class="col">
-  <div class="input-group">
-    <input type="text" class="form-control m-1"  [formControl]="numero"  placeholder="Ingrese monto a transferir" aria-label="Ingrese monto a transferir">
-    <span class="input-group-text">$</span>
-    <span class="input-group-text">0.00</span>
+  <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <p class="h6">Ingresa dinero en criptomedas a transferir</p>
+      <div class="col">
+        <div class="input-group">
+          <input type="text" class="form-control m-1"  [formControl]="montoCripto"  placeholder="Ingrese monto a transferir" aria-label="Ingrese monto a transferir">
+          <span class="input-group-text">$</span>
+          <span class="input-group-text">0.00</span>
 
-</div>
-<div  *ngIf = "numero.invalid && (numero.dirty || numero.touched)">
-    <p *ngIf = "numero.errors?.required">
-      El monto a tranferir es requerido
-    </p>
-    <p *ngIf = "numero.errors?.max">
-      El monto no puede superar los 16 digitos
-    </p>
+        </div>
+
+      </div>
+      <div  *ngIf = "montoCriptoField.invalid && (montoCriptoField.dirty || montoCriptoField.touched)" class='text-danger'>
+        <p *ngIf = "montoCriptoField.errors?.required">
+          El monto a tranferir es requerido
+        </p>
+        <p *ngIf ="montoCriptoField.errors?.max || montoCriptoField.errors?.min">
+          El monto no puede superar los 2000
+        </p>
+      </div>
+
+      <input class="btn m-2" type="submit" value="Transferir">
+
+
+
+      <hr>
+
   </div>
-  </div>
-
-  <input class="btn btn-primary m-2" type="submit" value="Transferir">
-
-  <hr>
-
-   </div>
   </div>
  </div>
 </div>    

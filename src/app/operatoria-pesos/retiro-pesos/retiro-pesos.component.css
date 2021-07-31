@@ -1,0 +1,30 @@
+.card{
+    border-color: #7A1DC9;
+    color:#7A1DC9;
+}
+
+.card-title{
+    color:black;
+}
+
+.card-text{
+    color:black;
+    border-color: #030303;
+    
+}
+
+.btn:hover {
+    
+    border:1px solid #e8e8e9;
+    border-radius: 15px;
+    background-color: rgb(126, 31, 113);
+    transition: background-color .5s;
+    color:beige
+}
+
+          
+.btn {
+    border-color: #7A1DC9;
+    color:#7A1DC9;
+
+}
