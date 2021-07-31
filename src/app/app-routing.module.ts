@@ -7,6 +7,7 @@ import { TransferenciasComponent } from './operatoria-pesos/transferencias/trans
 import { ConocenosComponent } from './pages/conocenos/conocenos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InicioSesionComponent } from './pages/inicio-sesion/inicio-sesion.component';
+import { RegistrateComponent } from './pages/registrate/registrate.component';
 import { PaginaPrincipalComponent } from './pages/pagina-principal/pagina-principal.component';
 
 
@@ -18,8 +19,9 @@ const routes: Routes = [
   {path: 'ingreso-pesos', component: IngresoPesosComponent},
   {path: 'retiro-pesos', component: RetiroPesosComponent},
   {path: 'transferencias', component: TransferenciasComponent},
-  {path: 'pagina-principal', component: PaginaPrincipalComponent},  
-  {path: "", redirectTo: '/home', pathMatch: 'full'}
+  {path: 'pagina-principal', component: PaginaPrincipalComponent},
+  {path: 'registrate', component: RegistrateComponent},  
+  {path: " ", redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

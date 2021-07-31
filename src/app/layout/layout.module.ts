@@ -5,18 +5,24 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
 
+import { SidebarModule } from 'ng-sidebar';
 
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent,
+    
   ],
   imports: [
     CommonModule, 
-    AppRoutingModule
-  ],
-  exports: [HeaderComponent, NavbarComponent, FooterComponent]
+    AppRoutingModule,
+    SidebarModule.forRoot()
+    ],
+  exports: [HeaderComponent, NavbarComponent, FooterComponent, SidebarComponent],
 })
+
 export class LayoutModule { }
