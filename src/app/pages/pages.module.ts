@@ -6,6 +6,8 @@ import { ConocenosComponent } from './conocenos/conocenos.component';
 import { RegistrateComponent } from './registrate/registrate.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { OperatoriaPesosModule } from '../operatoria-pesos/operatoria-pesos.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -19,7 +21,11 @@ import { OperatoriaPesosModule } from '../operatoria-pesos/operatoria-pesos.modu
   ],
   imports: [
     CommonModule,
-    OperatoriaPesosModule
+    OperatoriaPesosModule,
+    ReactiveFormsModule
+
+
+    
   
   ],    
   exports: [HomeComponent, InicioSesionComponent, ConocenosComponent,RegistrateComponent, PaginaPrincipalComponent ]

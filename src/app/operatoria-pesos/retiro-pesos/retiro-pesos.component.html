@@ -1,15 +1,10 @@
-<div class="mb-3">
-    <h4>Retiro de dinero</h4>
-</div>
-<div class= "row">
-    <div class = "col-sm-4 ">
-        <p>Tu saldo actual es de: </p>
-    </div>
-    <div class= "col-sm-2 bg-light">
-        <p>
-            {{saldo |currency}}
-        </p>
-    </div>
+
+<div class="card m-3">
+  <h5 class="card-header">Retiro de dinero</h5>
+  <div class="card-body row">
+    <h5 class="card-title col-sm-4">Tu saldo actual es de:</h5>
+    <h4 class="card-text col-sm-2 bg-light p-3"> {{saldo |currency}}</h4>
+  </div>
 </div>
 
 <hr>
@@ -22,7 +17,7 @@
 <div class="input-group">
     <div class ="col-sm-3 m-2">
         <input type="text" class="form-control" [formControl]="retiroDinero" placeholder="Ingresa el monto" aria-label="Retirar" aria-describedby="button-addon2">
-        <div  *ngIf = "retiroField.invalid && (retiroField.dirty || retiroField.touched)">
+        <div  *ngIf = "retiroField.invalid && (retiroField.dirty || retiroField.touched)"  class='text-danger'>
           <p *ngIf = "retiroField.errors?.required">
             El campo es requerido
           </p>
