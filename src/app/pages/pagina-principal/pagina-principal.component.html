@@ -1,46 +1,25 @@
-<div class="accordion" id="accordionExample" >
-    <div class="accordion-item">
-  
-      <div class="callout bg-light border m-1" >
-          <h3 class="text-center">Consulta tu saldo</h3>
-      </div>
-      
-   </div>
-</div>
-<div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Saldo
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-          <div class="accordion-body row">
-                <div class="col">
-                    <strong>Cuenta $8877552220087 </strong>
-                </div> 
-                <div class="col border"> 
-                    <p>Tu saldo es:  {{saldo|currency}} </p>
-                </div>  
-          </div>
-        </div>
-    </div>
-        
+<div class="card m-3">
+  <h5 class="card-header">Tu saldo actual es</h5>
+  <div class="card-body row">
+    <h5 class="card-title col-sm-4">Cuenta $8877552220087</h5>
+    <h4 class="card-text col-sm-2 bg-light p-3"> {{saldo |currency}}</h4>
+  </div>
 </div>
 
-<div class="accordion" id="accordionExample" >
-    <div class="accordion-item">
-  
-      <div class="callout bg-light border m-1" >
-          <h3 class="text-center">Consulta sobre ultimas operaciones</h3>
-      </div>
-      
-   </div>
-</div>
-  
 
-  <div class="accordion" id="accordionExample">
+  <div class="accordion" id="accordionExample" >
       <div class="accordion-item">
+    
+        <div class="callout bg-light border m-1" >
+            <h3 class="text-center">Consulta sobre ultimas operaciones</h3>
+        </div>
+        
+    </div>
+  </div>
+    
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
        
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -120,5 +99,5 @@
             </table>
           
         </div>
-      </div>
     </div>
+

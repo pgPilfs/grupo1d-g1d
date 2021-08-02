@@ -24,7 +24,7 @@
         
           </div>
 
-          <input class="btn btn-primary m-2" type="submit" value="Enviar">
+          <input class="btn m-2" type="submit" value="Enviar">
 
           <hr>
           <!--Formulario para agregar tarjeta de debito-->
@@ -33,7 +33,7 @@
                   <p class="h6">Agregar tarjeta de debito</p>
                   <div class="col">
                     <input type="text" class="form-control m-1" [formControl]="numero" placeholder="Numero de tarjeta" aria-label="Numero de tarjeta">
-                    <div  *ngIf = "numero.invalid && (numero.dirty || numero.touched)">
+                    <div  *ngIf = "numero.invalid && (numero.dirty || numero.touched)" class='text-danger'>
                       <p *ngIf = "numero.errors?.required">
                         El numero de la tarjeta es requerido
                       </p>
@@ -45,7 +45,7 @@
                   
                   <div class="col">
                     <input type="date" class="form-control m-1" [formControl]="venc" placeholder="vencimiento" aria-label="Vencimiento">
-                    <div  *ngIf = "venc.invalid && (venc.dirty || venc.touched)">
+                    <div  *ngIf = "venc.invalid && (venc.dirty || venc.touched)"  class='text-danger'>
                       <p *ngIf = "venc.errors?.required">
                         El vencimiento de la tarjeta es requerido
                       </p>
@@ -56,7 +56,7 @@
             <div class="row">
               <div class="col">
                 <input type="text" class="form-control m-1" [formControl]="nombre" placeholder="Nombre del titular" aria-label="Nombre del titular">
-                <div  *ngIf = "nombreField.invalid && (nombreField.dirty || nombreField.touched)">
+                <div  *ngIf = "nombreField.invalid && (nombreField.dirty || nombreField.touched)"  class='text-danger'>
                   <p *ngIf = "nombreField.errors?.required">
                     El nombre del titular es requerido
                   </p>
@@ -67,7 +67,7 @@
               </div>
               <div class="col">
                 <input type="text" class="form-control m-1" [formControl]="cvv"  placeholder="CVV" aria-label="CVV">
-                <div  *ngIf = "cvvField.invalid && (cvvField.dirty || cvvField.touched)">
+                <div  *ngIf = "cvvField.invalid && (cvvField.dirty || cvvField.touched)"  class='text-danger'>
                   <p *ngIf = "cvvField.errors?.required">
                     El numero de CVV es requerido
                   </p>
@@ -78,7 +78,7 @@
               </div>
             </div>
 
-            <input class="btn btn-primary m-2" type="submit" value="Confirmar" (click)="registroTarjeta()">
+            <input class="btn m-2" type="submit" value="Confirmar" (click)="registroTarjeta()">
           </form>
 
         </div>
@@ -109,13 +109,13 @@
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingTwo">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Trasnferencia
+            Transferencia
           </button>
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
           <div class="accordion-body">
                 <div class="title-cvu">
-                    Copia tu cvu o alias para ingresar o transferir dinero desde otra cuenta.
+                    Copia tu cbu o alias para ingresar o transferir dinero desde otra cuenta.
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">

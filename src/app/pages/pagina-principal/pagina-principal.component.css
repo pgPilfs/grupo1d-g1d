@@ -1,0 +1,14 @@
+.card{
+    border-color: #7A1DC9;
+    color:#7A1DC9;
+}
+
+.card-title{
+    color:black;
+}
+
+.card-text{
+    color:black;
+    border-color: #030303;
+    
+}
