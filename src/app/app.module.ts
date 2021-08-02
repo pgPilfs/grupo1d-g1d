@@ -9,7 +9,7 @@ import { OperatoriaPesosModule } from './operatoria-pesos/operatoria-pesos.modul
 import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SidebarModule } from 'ng-sidebar';
+
 
 
 @NgModule({
@@ -25,7 +25,6 @@ import { SidebarModule } from 'ng-sidebar';
     OperatoriaPesosModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SidebarModule.forRoot()
 ],
   providers: [],
   bootstrap: [AppComponent]
