@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
     "@angular/router": "~11.2.11",
+    "angular-particle": "^1.0.4",
     "bootstrap": "^5.0.1",
     "ng-sidebar": "^9.4.2",
     "rxjs": "~6.6.0",
@@ -45,5 +46,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.5"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgPilfs/grupo1d-g1d.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pgPilfs/grupo1d-g1d/issues"
+  },
+  "homepage": "https://github.com/pgPilfs/grupo1d-g1d#readme"
 }

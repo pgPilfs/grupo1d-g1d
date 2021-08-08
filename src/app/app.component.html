@@ -1,12 +1,17 @@
 <app-header></app-header>
+<particles [style]="myStyle" [width]="width" [height]="height" [params]="myParams"></particles>
 
 <app-navbar></app-navbar>
+
 <div class="container">
+  <br><br><br>
+
   <div class="row">
+
     <div class="col-md-12">
       <router-outlet></router-outlet>
     </div>
+    
   </div>
 </div>
-
 <app-footer></app-footer>

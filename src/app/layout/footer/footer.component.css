@@ -11,9 +11,10 @@ a:hover {
 
 .footer{
   width: 100%;
-  position: relative;
+  position:fixed;
   clear: both;
   margin-top: 0px;
   padding-top: 0px;
-  overflow: visible
+  overflow: visible;
+  bottom:0;
 }

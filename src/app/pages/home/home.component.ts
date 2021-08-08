@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ParticlesModule } from 'angular-particle';
+
 
 @Component({
   selector: 'app-home',
