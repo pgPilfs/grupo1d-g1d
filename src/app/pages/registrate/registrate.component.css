@@ -1,0 +1,43 @@
+h3 {
+    color: #7A1DC9;
+    font-weight: medium;
+    line-height: 103.69%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.016em;
+}
+
+.card-header {
+    background-color: #7A1DC9;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #7A1DC9;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+}
+
+.cardi {
+    border: 2px solid #7A1DC9;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: rgb(247, 247, 247);
+}
+
+.up-btn {
+    width: auto;
+    height: 37px;
+    color: #7A1DC9;
+    background: white;
+    border: 1px solid #7A1DC9;
+    border-radius: 5px;
+}
+
+.up-btn:hover {
+    transition: 0.3s;
+    color: white;
+    background: #7A1DC9;
+}
+
+svg {
+    color: #7A1DC9;
+}
