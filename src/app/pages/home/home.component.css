@@ -1,62 +1,39 @@
-
-
-.presentation{ 
-    font-family: Roboto;
-    padding-left: 10%;
-    padding-top: 5%;
-
-   }
-
-.title{ 
+.title {
     font-style: italic;
     font-weight: 900;
     font-size: 3.75rem;
     line-height: 51px;
-    display: flex;
-    align-items: center;
     letter-spacing: -0.055em;
     color: #CE1CDC;
 }
 
 .texto-1 {
-   font-style: italic;
+    font-style: italic;
     font-weight: medium;
     font-size: 35px;
     line-height: 103.69%;
-
     display: flex;
     align-items: center;
     letter-spacing: 0.016em;
-
     color: #000000;
 }
 
-.texto-2{
-
+.texto-2 {
     font-style: italic;
     font-weight: 400;
     font-size: 20px;
     line-height: 103.69%;
-
-
     display: flex;
     align-items: center;
     letter-spacing: 0.015em;
-
     color: #000000;
 }
 
-
-
-
-.celu{
-position: absolute;
-height: 570px;
-left: 65%;
-top: 10%;
+.celu {
+    height: 570px;
 }
 
-.link{
+.link {
     color: #7A1DC9;
     cursor: pointer;
     padding-left: 20px;
@@ -67,33 +44,26 @@ span {
 }
 
 @media screen and (max-width: 900px) {
-
     .celu {
-      top:auto;
-      left: 32%;
-      position: relative;
-      flex-direction: row;
-      height:160px;
-      transition: 1s linear;
+        top: auto;
+        left: 32%;
+        position: relative;
+        flex-direction: row;
+        height: 160px;
+        transition: 1s linear;
     }
-    .title{ 
-        
+    .title {
         font-size: 40px;
     }
-    .texto-1{
-        
+    .texto-1 {
         font-size: 35px;
-
     }
+}
 
-
-  }
-
-  @media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
     .celu {
-      flex-direction: column;
-      height:570px;
-      transition: s linear;
+        flex-direction: column;
+        height: 570px;
+        transition: s linear;
     }
-  }
-
+}

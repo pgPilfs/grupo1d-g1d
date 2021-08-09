@@ -1,5 +1,5 @@
-<div class="row justify-content-center">
-    <div class="col-md-6 pt-4">
+<div class="row justify-content-center py-5">
+    <div class="col-md-6">
         <div class="cardi card">
             <div class="card-header text-center"><strong>INICIAR SESION</strong></div>
             <div class="card-body">
@@ -15,8 +15,7 @@
                                         d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z" />
                                 </svg>
                             </span>
-                            <input type="email" placeholder="Ingrese su dirección de e-mail" class="form-control"
-                                [formControl]="mail" id="inputEmail" aria-describedby="emailHelp">
+                            <input type="email" placeholder="Ingrese su dirección de e-mail" class="form-control" [formControl]="mail" id="inputEmail" aria-describedby="emailHelp">
                         </div>
                         <div *ngIf="mailField.invalid && (mailField.dirty || mailField.touched)" class='text-danger'>
                             <small *ngIf="mailField.hasError('pattern')">
@@ -39,11 +38,9 @@
                                         d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                                 </svg>
                             </span>
-                            <input type="password" placeholder="Ingrese su contraseña" class="form-control"
-                                [formControl]="password" id="inputPassword">
+                            <input type="password" placeholder="Ingrese su contraseña" class="form-control" [formControl]="password" id="inputPassword">
                         </div>
-                        <div class="p-3" *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)"
-                            class='text-danger'>
+                        <div class="p-3" *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)" class='text-danger'>
                             <small *ngIf="passwordField.hasError('pattern')">
                                 La clave debe contener una letra Mayuscula y *
                             </small>
