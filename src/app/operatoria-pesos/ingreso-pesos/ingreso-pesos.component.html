@@ -24,8 +24,12 @@
 
                 </div>
 
-                <input class="btn m-2" type="submit" value="Enviar">
-
+                <div class="form-floating">
+                    <input class="btn m-2" type="submit" value="Enviar">
+                </div>
+                
+                
+                
                 <hr>
                 <!--Formulario para agregar tarjeta de debito-->
                 <form>
@@ -78,7 +82,11 @@
                         </div>
                     </div>
 
-                    <input class="btn m-2" type="submit" value="Confirmar" (click)="registroTarjeta()">
+                    <div class="form-floating">
+                        <input class="btn m-2" type="submit" value="Confirmar" (click)="registroTarjeta()">
+                    </div>
+
+            
                 </form>
 
             </div>
@@ -107,12 +115,13 @@
         </div>
         <!--Transferencia-->
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Transferencia
-          </button>
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Transferir
+                </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <!--Aca utilice una card para mostrar la info-->
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div class="title-cvu">
                         Copia tu cbu o alias para ingresar o transferir dinero desde otra cuenta.
@@ -157,15 +166,17 @@
                             <label for="floatingTextarea">Nuevo Alias</label>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
         <!--Efectivo-->
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Efectivo
-          </button>
+                  Efectivo
+                </button>
             </h2>
             <!--Aca utilice una card para mostrar la info-->
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">

@@ -13,3 +13,16 @@
     color:#7A1DC9;
 
 }
+
+.accordion-button{
+    border-color: #7A1DC9;
+    color:#7A1DC9;
+}
+
+.accordion-button:hover{
+    border:1px solid #e8e8e9;
+    border-radius: 15px;
+    background-color: rgb(126, 31, 113);
+    transition: background-color .5s;
+    color:beige
+}
