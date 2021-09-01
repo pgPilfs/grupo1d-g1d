@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Back"
+    "\\Back",
+    "\\Back\\DC-Wallet",
+    "\\Back\\DC-Wallet\\DC-Wallet"
   ],
+  "SelectedNode": "\\Back\\DC-Wallet\\DC-Wallet\\Class1.cs",
   "PreviewInSolutionExplorer": false
 }
