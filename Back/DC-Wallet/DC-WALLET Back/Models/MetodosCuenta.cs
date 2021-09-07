@@ -79,7 +79,7 @@ namespace MVCWebApi.Models
                     string Tipo_Cuenta1 = dr.GetStrinf(3).Trim();
                     double Monto = dr.GetDouble(4);
 
-                    cuenta = new Cuenta(Id1,IdCliente1,Tipo_Cuenta1,Monto);
+                    Cuenta = new Cuenta(Id1,IdCliente1,Tipo_Cuenta1,Monto);
 
                     comm = conn.CreateCommand();
                     comm.CommandText = "LISTAR MOVIMIENTOS";
@@ -107,7 +107,7 @@ namespace MVCWebApi.Models
 
             }
 
-            return cuenta;
+            return Cuenta;
         }
     }
 }

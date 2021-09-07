@@ -4,8 +4,8 @@
     "\\Back",
     "\\Back\\DC-Wallet",
     "\\Back\\DC-Wallet\\DC-WALLET Back",
-    "\\Back\\DC-Wallet\\DC-WALLET Back\\Models"
+    "\\Back\\DC-Wallet\\DC-WALLET Back\\Controllers"
   ],
-  "SelectedNode": "\\Back\\DC-Wallet\\DC-WALLET Back\\Models\\Cuenta.cs",
+  "SelectedNode": "\\Back\\DC-Wallet\\DC-WALLET Back\\Controllers",
   "PreviewInSolutionExplorer": false
 }
