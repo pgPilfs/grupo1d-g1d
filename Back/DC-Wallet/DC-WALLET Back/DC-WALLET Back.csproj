@@ -160,6 +160,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MetodosCuenta.cs" />
+    <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -216,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cuenta\" />
     <Folder Include="Views\Db\" />
   </ItemGroup>
   <ItemGroup>

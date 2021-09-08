@@ -5,6 +5,8 @@ using System.Web;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
+using static MVCWebApi.Models.Cuenta;
+//using static MVCWebApi.Models.Cuenta.Movimiento;
 
 namespace MVCWebApi.Models
 {
@@ -26,7 +28,7 @@ namespace MVCWebApi.Models
                 comm.Parameters.Add(new SqlParameter("@IdCliente", Cuenta.Id1));
                 comm.Parameters.Add(new SqlParameter("@TipoCuenta", Cuenta.Tipo_Cuenta1));
                 comm.Parameters.Add(new SqlParameter("@Monto", Cuenta.Monto));
-      
+
                 comm.ExecuteNonQuery();
 
             }
@@ -55,7 +57,7 @@ namespace MVCWebApi.Models
         public Cuenta ObtenterCuenta(int Id1)
         {
             Cuenta Cuenta = null;
-            Movimiento Movimiento = null;
+            Movimiento movimiento = null;
 
 
 
@@ -74,12 +76,12 @@ namespace MVCWebApi.Models
 
                 if (dr.Read())
                 {
-                    int Id1 = dr.GetInt32(1); 
+                    int Id = dr.GetInt32(1);
                     int IdCliente1 = dr.GetInt32(2);
-                    string Tipo_Cuenta1 = dr.GetStrinf(3).Trim();
+                    string Tipo_Cuenta1 = dr.GetString(3).Trim();
                     double Monto = dr.GetDouble(4);
 
-                    Cuenta = new Cuenta(Id1,IdCliente1,Tipo_Cuenta1,Monto);
+                    Cuenta = new Cuenta(Id1, IdCliente1, Monto, Tipo_Cuenta1);
 
                     comm = conn.CreateCommand();
                     comm.CommandText = "LISTAR MOVIMIENTOS";
@@ -93,12 +95,12 @@ namespace MVCWebApi.Models
                         DateTime fechahora = dr.GetDateTime(2);
                         double monto = dr.GetDouble(3);
                         int idCuenta = dr.GetInt32(4);
-                        string tipoCuenta = dr.GetInt32(5),Trim():
-                        int tipoMovimiento = dr.GetString(6);
+                        string tipoCuenta = dr.GetString(5).Trim();
+                        string tipoMovimiento = dr.GetString(6);
 
                         movimiento = new Movimiento(fechahora, monto, idCuenta, tipoCuenta, tipoMovimiento);
-                        Cuenta.Movimiento.Add(movimiento);
-                       
+                        Cuenta.Movimientos.Add(movimiento);
+
 
                     }
                     dr.Close();
