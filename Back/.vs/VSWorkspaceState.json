@@ -1,15 +1,9 @@
 {
   "ExpandedNodes": [
-<<<<<<< HEAD
     "",
     "\\DC-Wallet",
-    "\\DC-Wallet\\DC-WALLET Back",
-    "\\DC-Wallet\\DC-WALLET Back\\Models"
+    "\\DC-Wallet\\DC-WALLET Back"
   ],
-  "SelectedNode": "\\DC-Wallet\\DC-WALLET Back\\Models\\.cs",
-=======
-    ""
-  ],
->>>>>>> 352a87b46c5bbdcafc168d561aa7136ac3811b93
+  "SelectedNode": "\\DC-Wallet",
   "PreviewInSolutionExplorer": false
 }

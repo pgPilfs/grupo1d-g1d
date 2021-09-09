@@ -4,12 +4,9 @@
     "\\Back",
     "\\Back\\DC-Wallet",
     "\\Back\\DC-Wallet\\DC-WALLET Back",
-    "\\Back\\DC-Wallet\\DC-WALLET Back\\Controllers"
+    "\\Back\\DC-Wallet\\DC-WALLET Back\\Models",
+    "\\Back\\DC-Wallet\\DC-WALLET Back\\Models\\Modelos"
   ],
-<<<<<<< HEAD
-  "SelectedNode": "\\Back\\DC-Wallet\\DC-WALLET Back\\Models",
-=======
-  "SelectedNode": "\\Back\\DC-Wallet\\DC-WALLET Back\\Controllers",
->>>>>>> 352a87b46c5bbdcafc168d561aa7136ac3811b93
+  "SelectedNode": "\\Back\\DC-Wallet\\DC-WALLET Back\\Content",
   "PreviewInSolutionExplorer": false
 }

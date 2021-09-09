@@ -52,7 +52,7 @@ namespace MVCWebApi.Models
         }
 
         //mostrar cuenta y ultimos movimientos 
-        public Cuenta ObtenterCuenta(int Id1)
+        public Cuenta ObtenerCuenta(int Id1)
         {
             Cuenta Cuenta = null;
             Movimiento Movimiento = null;

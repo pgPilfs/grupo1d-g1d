@@ -22,7 +22,7 @@ namespace DC_Wallet_BackEnd.Models
                 comm.CommandText = "Realizar_OperacionDeposito";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
                 comm.Parameters.Add(new SqlParameter("@Nombre", "Deposito"));
-                comm.Parameters.Add(new SqlParameter("@Monto", ingresar.Monto));
+                comm.Parameters.Add(new SqlParameter("@Monto", ingresar.Monto));//le paso el valor de la base de datos que recibe el objecto ingresar y las propiedades del modelo
                 comm.Parameters.Add(new SqlParameter("@IdCliente", ingresar.IdCliente));
                 comm.Parameters.Add(new SqlParameter("@IdCuenta", ingresar.IdCuenta));
 
