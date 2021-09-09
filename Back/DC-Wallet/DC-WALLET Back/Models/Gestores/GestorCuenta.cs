@@ -23,7 +23,7 @@ namespace MVCWebApi.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "CREAR CUENTA";
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@IdCliente", Cuenta.Id1));
+                comm.Parameters.Add(new SqlParameter("@IdCuenta", Cuenta.Id1));
                 comm.Parameters.Add(new SqlParameter("@TipoCuenta", Cuenta.Tipo_Cuenta1));
                 comm.Parameters.Add(new SqlParameter("@Monto", Cuenta.Monto));
       
@@ -44,18 +44,45 @@ namespace MVCWebApi.Models
 
                 SqlCommand comm = new SqlCommand("BAJA-CUENTA", conn);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@IdCliente", Id1));
+                comm.Parameters.Add(new SqlParameter("@IdCuenta", Id1));
 
                 comm.ExecuteNonQuery();
             }
 
         }
 
+        //Obtener saldo 
+
+        public decimal ObtenerSaldo(int idCuenta)
+        {
+
+            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            decimal saldo = 0;
+
+            using (SqlConnection connec = new SqlConnection(strConn))
+            {
+                connec.Open();
+
+                SqlCommand comm = new SqlCommand("MOSTRAR SALDO", connec);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@idCuenta", Id1));
+
+                SqlDataReader reader = comm.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    saldo = reader.GetDecimal(4);
+                }
+
+            }
+            return saldo;
+        }
+
         //mostrar cuenta y ultimos movimientos 
         public Cuenta ObtenterCuenta(int Id1)
         {
             Cuenta Cuenta = null;
-            Movimiento Movimiento = null;
+            List<Movimientos> lista = new List<Movimientos>();
 
 
 
@@ -93,11 +120,11 @@ namespace MVCWebApi.Models
                         DateTime fechahora = dr.GetDateTime(2);
                         double monto = dr.GetDouble(3);
                         int idCuenta = dr.GetInt32(4);
-                        string tipoCuenta = dr.GetInt32(5),Trim():
-                        int tipoMovimiento = dr.GetString(6);
+                        string tipoCuenta = dr.GetString(5).Trim();
+                        string tipoMovimiento = dr.GetString(6).Trim();
 
                         movimiento = new Movimiento(fechahora, monto, idCuenta, tipoCuenta, tipoMovimiento);
-                        Cuenta.Movimiento=movimiento;
+                        Cuenta.Movimientos.Add(movimiento);
                        
 
                     }
