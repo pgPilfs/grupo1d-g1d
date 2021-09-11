@@ -83,6 +83,7 @@ namespace MVCWebApi.Models
         public Cuenta ObtenerCuenta(int Id1)
         {
             Cuenta Cuenta = null;
+            Movimiento movimiento = null;
             List<Movimiento> lista = new List<Movimiento>();
 
 
@@ -123,7 +124,7 @@ namespace MVCWebApi.Models
                         int idCuenta = dr.GetInt32(4);
                         string tipoCuenta = dr.GetString(5).Trim();
                         string tipoMovimiento = dr.GetString(6).Trim();
-                        Movimiento movimiento = new Movimiento(fechahora, monto, idCuenta, tipoCuenta, tipoMovimiento);
+                        movimiento = new Movimiento(fechahora, monto, idCuenta, tipoCuenta, tipoMovimiento);
                         Cuenta.Movimientos.Add(movimiento);
                        
 
