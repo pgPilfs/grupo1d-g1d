@@ -5,10 +5,11 @@ using System.Web;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
+using static MVCWebApi.Models.Cuenta;
 
 namespace MVCWebApi.Models
 {
-    public class MetodosCuenta
+    public class GestorCuenta
     {
         //Alta cuenta 
 
@@ -59,13 +60,13 @@ namespace MVCWebApi.Models
             string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             decimal saldo = 0;
 
-            using (SqlConnection connec = new SqlConnection(strConn))
+            using (SqlConnection connec = new SqlConnection(StrConn))
             {
                 connec.Open();
 
                 SqlCommand comm = new SqlCommand("MOSTRAR SALDO", connec);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@idCuenta", Id1));
+                comm.Parameters.Add(new SqlParameter("@idCuenta", idCuenta));
 
                 SqlDataReader reader = comm.ExecuteReader();
 
@@ -82,7 +83,7 @@ namespace MVCWebApi.Models
         public Cuenta ObtenerCuenta(int Id1)
         {
             Cuenta Cuenta = null;
-            List<Movimientos> lista = new List<Movimientos>();
+            List<Movimiento> lista = new List<Movimiento>();
 
 
 
@@ -101,12 +102,12 @@ namespace MVCWebApi.Models
 
                 if (dr.Read())
                 {
-                    int Id1 = dr.GetInt32(1); 
+                    int Id = dr.GetInt32(1); 
                     int IdCliente1 = dr.GetInt32(2);
-                    string Tipo_Cuenta1 = dr.GetStrinf(3).Trim();
+                    string Tipo_Cuenta1 = dr.GetString(3).Trim();
                     double Monto = dr.GetDouble(4);
 
-                    Cuenta = new Cuenta(Id1,IdCliente1,Tipo_Cuenta1,Monto);
+                    Cuenta = new Cuenta(Id,IdCliente1,Monto, Tipo_Cuenta1);
 
                     comm = conn.CreateCommand();
                     comm.CommandText = "LISTAR MOVIMIENTOS";
@@ -122,8 +123,7 @@ namespace MVCWebApi.Models
                         int idCuenta = dr.GetInt32(4);
                         string tipoCuenta = dr.GetString(5).Trim();
                         string tipoMovimiento = dr.GetString(6).Trim();
-
-                        movimiento = new Movimiento(fechahora, monto, idCuenta, tipoCuenta, tipoMovimiento);
+                        Movimiento movimiento = new Movimiento(fechahora, monto, idCuenta, tipoCuenta, tipoMovimiento);
                         Cuenta.Movimientos.Add(movimiento);
                        
 
