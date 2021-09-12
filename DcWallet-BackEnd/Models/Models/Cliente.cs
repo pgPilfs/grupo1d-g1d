@@ -3,44 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DC_WALLET_Back.Models
+namespace MVCWebApi.Models
 {
     public class Cliente
     {
-        private int idCliente; //se crean las propiedas//
-        private int dni;
+        private int idCliente;
+        private string nombre;
+        private string apellido;
+        private string ciudad;
         private int cP;
-        private String nombre;
-        private String apellido;
-        private String ciudad;
-        private String provincia;
-        private String nombreUsuario;
-        private String email;
-        private byte[] fotoDni;
+        private string provincia;
+        private string nombreUsuario;
+        private int dni;
+        private string email;
+        private string fotoDni;
+        private int password;
 
-        public Cliente(int idCliente, int dni, int cP, string nombre, string apellido, string ciudad, string provincia, string nombreUsuario, string email, byte[] fotoDni)
+        //constructor que recibe parametros
+        public Cliente(int idCliente, string nombre, string apellido, string ciudad, int cP, string provincia, string nombreUsuario, int dni, string email, string fotoDni, int password)
         {
             IdCliente = idCliente;
-            Dni = dni;
-            CP = cP;
             Nombre = nombre;
             Apellido = apellido;
             Ciudad = ciudad;
+            CP = cP;
             Provincia = provincia;
             NombreUsuario = nombreUsuario;
+            Dni = dni;
             Email = email;
-            FotoDni = fotoDni; //el contructor asigna el valor a las variables respetando las propiedas//
+            FotoDni = fotoDni;
+            Password = password;
+        }
+        //constructor que no recibe parametros
+        public Cliente()
+        {
         }
 
-        public int IdCliente { get => idCliente; set => idCliente = value; }//se crean las propiedades que se le van a pasar a la base de datos-- con la creación de la instacia ya le podemos asignar valores a la base//
-        public int Dni { get => dni; set => dni = value; }
-        public int CP { get => cP; set => cP = value; }
+        //campos encapsulados y usando la propiedad
+        public int IdCliente { get => idCliente; set => idCliente = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
         public string Ciudad { get => ciudad; set => ciudad = value; }
+        public int CP { get => cP; set => cP = value; }
         public string Provincia { get => provincia; set => provincia = value; }
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
+        public int Dni { get => dni; set => dni = value; }
         public string Email { get => email; set => email = value; }
-        public byte[] FotoDni { get => fotoDni; set => fotoDni = value; }
+        public string FotoDni { get => fotoDni; set => fotoDni = value; }
+        public int Password { get => password; set => password = value; }
     }
 }
