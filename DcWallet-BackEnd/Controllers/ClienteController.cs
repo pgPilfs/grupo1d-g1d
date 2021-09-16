@@ -41,6 +41,7 @@ namespace MVCWebApi.Controllers
         {
             GestorCliente gCliente = new GestorCliente();
             gCliente.Eliminar(idCliente);
+            return null;
             
         }
     }

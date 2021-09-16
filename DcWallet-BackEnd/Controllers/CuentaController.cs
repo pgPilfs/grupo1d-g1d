@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace DC_WALLET_Back.Controllers
 {
-    public class CuentaController : Controller
+    public class CuentaController : ApiController
     {
         // GET: Cuenta
 
@@ -21,6 +21,15 @@ namespace DC_WALLET_Back.Controllers
         {
             GestorCuenta Cuenta = new GestorCuenta();
             return Cuenta.ObtenerCuenta(Id1);
+        }
+
+        [System.Web.Mvc.HttpGet()]
+        public IHttpActionResult GetxCBU([FromUri] string cbu)
+        {
+            GestorCuenta gestorCuenta = new GestorCuenta();
+            var cuenta = gestorCuenta.ObtenerxCbu(cbu);
+            if (cuenta != null) return Ok(cuenta);
+            return NotFound();
         }
 
 
@@ -45,14 +54,14 @@ namespace DC_WALLET_Back.Controllers
         public void Post([FromBody] Cuenta value)
         {
             GestorCuenta Cuenta = new GestorCuenta();
-            Cuenta.AltaCuenta(value);
+            Cuenta.AltaCuenta(value.IdCliente1, value.Tipo_Cuenta1);
         }
-  
-
-        
         
 
-       
-        
+
+
+
+
+
     }
 }

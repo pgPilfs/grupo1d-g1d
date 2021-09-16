@@ -17,7 +17,7 @@ namespace MVCWebApi.Models
         public int Registrar(Cliente oCliente)
         {
             //accedo a la cadena de conexion con 
-            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
 
             //creo este objeto de conexion para que viva en ese epacio de codigo
             using (SqlConnection conn = new SqlConnection(connection))
@@ -55,7 +55,7 @@ namespace MVCWebApi.Models
             Cliente cliente = null;
 
             //Conecto a la db para poder ir a buscar el objeto
-            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
 
             using (
                 SqlConnection conn = new SqlConnection(connection))
@@ -80,7 +80,7 @@ namespace MVCWebApi.Models
                     string nombreUsuario = dr.GetString(6).Trim();
                     int dni = dr.GetInt32(7);
                     string email = dr.GetString(8).Trim();
-                    string fotoDni = dr.GetString(9).Trim();
+                    string fotoDni = dr.IsDBNull(9) ? dr.GetString(8) : null;
                     int password = dr.GetInt32(10);
 
                     cliente = new Cliente(idCliente, nombre, apellido, ciudad, cP, provincia, nombreUsuario, dni, email, fotoDni, password);
@@ -95,7 +95,7 @@ namespace MVCWebApi.Models
 
         public void Eliminar(int idCliente)
         {
-            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
 
             using (SqlConnection conn = new SqlConnection(connection))
             {
@@ -115,7 +115,7 @@ namespace MVCWebApi.Models
         public List<Cliente> ObtenerClientes()
         {
             List<Cliente> lista = new List<Cliente>();
-            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
 
             using (SqlConnection conn = new SqlConnection(connection))
             {
