@@ -139,10 +139,10 @@ namespace MVCWebApi.Models
 
                 if (dr.Read())
                 {
-                    var Id = dr.GetInt32(1);
-                    var IdCliente1 = dr.GetInt32(2);
-                    var Tipo_Cuenta1 = dr.GetString(3).Trim();
-                    var CBU = dr.GetString(4);
+                    var Id = dr.GetInt32(0);
+                    var IdCliente1 = dr.GetInt32(1);
+                    var Tipo_Cuenta1 = dr.GetString(2).Trim();
+                    var CBU = dr.GetString(3).Trim();
 
                     Cuenta = new Cuenta(Id, IdCliente1, CBU, Tipo_Cuenta1);
 

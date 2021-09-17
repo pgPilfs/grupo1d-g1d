@@ -17,10 +17,10 @@ namespace DC_WALLET_Back.Controllers
         // GET: Cuenta
 
 
-        public Cuenta Get(int Id1)
+        public Cuenta Get(int id)
         {
             GestorCuenta Cuenta = new GestorCuenta();
-            return Cuenta.ObtenerCuenta(Id1);
+            return Cuenta.ObtenerCuenta(id);
         }
 
         [System.Web.Mvc.HttpGet()]
