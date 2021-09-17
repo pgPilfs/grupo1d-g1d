@@ -11,19 +11,20 @@ namespace MVCWebApi.Controllers
     public class ClienteController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<Cliente> Get()  // YA ANDA
         {
-            return new string[] { "value1", "value2" };
+            GestorCliente gCliente = new GestorCliente();
+            return gCliente.ObtenerClientes();
         }
 
         // GET api/<controller>/5
-        public Cliente Get(int id)
+        public Cliente Get(int id) //YA ANDA
         {
             GestorCliente gestorCliente = new GestorCliente();
             return gestorCliente.ObtenerCliente(id);
         }
 
-        // POST api/<controller>
+        // POST api/<controller> //YA ANDA 
         public Cliente Post([FromBody] Cliente value)
         {
             GestorCliente gCliente = new GestorCliente();
