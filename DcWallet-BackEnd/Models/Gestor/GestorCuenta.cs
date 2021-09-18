@@ -15,7 +15,7 @@ namespace MVCWebApi.Models
         
         public int AltaCuenta(Cuenta cuenta)
         {
-            //var cbu = GenerarCbu();
+            var cbu = GenerarCbu();
        
             string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
              
@@ -43,7 +43,7 @@ namespace MVCWebApi.Models
         /// </summary>
         /// <param name="cbu"></param>
         /// <returns></returns>
-        public Cuenta ObtenerxCbu(string cbu)
+        public Cuenta ObtenerxCbu(string CBU)
         {
             string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
             Cuenta cuenta = null;
@@ -54,7 +54,7 @@ namespace MVCWebApi.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "Obtener_Cbu";
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@cbu", cbu));
+                comm.Parameters.Add(new SqlParameter("@cbu", CBU));
 
                 SqlDataReader dr = comm.ExecuteReader();
                 if (dr.Read())
@@ -62,9 +62,9 @@ namespace MVCWebApi.Models
                     var Id = dr.GetInt32(0);
                     var IdCliente1 = dr.GetInt32(1);
                     var Tipo_Cuenta1 = dr.GetString(2).Trim();
-                    var CBU = dr.GetString(3).Trim();
+                    var cbu = dr.GetString(3).Trim();
 
-                    cuenta = new Cuenta(Id, IdCliente1, CBU, Tipo_Cuenta1);
+                    cuenta = new Cuenta(Id, IdCliente1, cbu, Tipo_Cuenta1);
 
 
                     dr.Close();

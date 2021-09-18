@@ -23,18 +23,25 @@ namespace DC_WALLET_Back.Controllers
             return Cuenta.ObtenerCuenta(id);
         }
 
-        
-        [System.Web.Mvc.HttpGet()]
+        public Cuenta Get(string cbu)
+        {
+            GestorCuenta cuenta_cbu = new GestorCuenta();
+            return cuenta_cbu.ObtenerxCbu(cbu);
+        }
+
+
+        /*[System.Web.Mvc.HttpGet()]
         public IHttpActionResult GetxCBU([FromUri] string cbu)
         {
             GestorCuenta gestorCuenta = new GestorCuenta();
             var cuenta = gestorCuenta.ObtenerxCbu(cbu);
+            
             if (cuenta != null) return Ok(cuenta);
             return NotFound();
-        }
+        }*/
 
 
-       
+
 
         //post cuenta
 
