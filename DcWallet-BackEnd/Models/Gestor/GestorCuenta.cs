@@ -13,10 +13,13 @@ namespace MVCWebApi.Models
     public class GestorCuenta
     {
         
-        public void AltaCuenta(int clienteId, string tipoCuenta)
+        public int AltaCuenta(Cuenta cuenta)
         {
+            //var cbu = GenerarCbu();
+       
             string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
-            var cbu = GenerarCbu();
+             
+
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
@@ -24,12 +27,13 @@ namespace MVCWebApi.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "CREAR CUENTA";
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@IdCuenta", 12));
-                comm.Parameters.Add(new SqlParameter("@TipoCuenta", tipoCuenta));
-                comm.Parameters.Add(new SqlParameter("@ClienteId", clienteId));
+                //comm.Parameters.Add(new SqlParameter("@IdCuenta", ));
+                comm.Parameters.Add(new SqlParameter("@IdCliente", cuenta.IdCliente1));
+                comm.Parameters.Add(new SqlParameter("@TipoCuenta", cuenta.Tipo_Cuenta1));
                 comm.Parameters.Add(new SqlParameter("@CBU", cbu));
 
-                comm.ExecuteNonQuery();
+                //comm.ExecuteNonQuery();
+                return Convert.ToInt32(comm.ExecuteScalar());
 
             }
         }
@@ -58,7 +62,7 @@ namespace MVCWebApi.Models
                     var Id = dr.GetInt32(0);
                     var IdCliente1 = dr.GetInt32(1);
                     var Tipo_Cuenta1 = dr.GetString(2).Trim();
-                    var CBU = dr.GetString(3);
+                    var CBU = dr.GetString(3).Trim();
 
                     cuenta = new Cuenta(Id, IdCliente1, CBU, Tipo_Cuenta1);
 

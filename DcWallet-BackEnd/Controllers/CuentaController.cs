@@ -23,6 +23,7 @@ namespace DC_WALLET_Back.Controllers
             return Cuenta.ObtenerCuenta(id);
         }
 
+        
         [System.Web.Mvc.HttpGet()]
         public IHttpActionResult GetxCBU([FromUri] string cbu)
         {
@@ -33,35 +34,23 @@ namespace DC_WALLET_Back.Controllers
         }
 
 
-        /*public Cuenta Get(int idCuenta)
-        {
-            GestorCuenta cuenta = new GestorCuenta();
-            decimal saldo =  cuenta.ObtenerSaldo(idCuenta);
-
-            if (saldo == 0)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(saldo);
-            }
-
-        }*/
+       
 
         //post cuenta
 
-        public void Post([FromBody] Cuenta value)
+        /*public void Post([FromBody] Cuenta value)
         {
             GestorCuenta Cuenta = new GestorCuenta();
             Cuenta.AltaCuenta(value.IdCliente1, value.Tipo_Cuenta1);
+        }*/
+
+        public void Post([FromBody] Cuenta value)
+        {
+            GestorCuenta gCuenta = new GestorCuenta();
+            gCuenta.AltaCuenta(value);
+            //return value;
         }
-        
 
-
-
-
-
-
+       
     }
 }
