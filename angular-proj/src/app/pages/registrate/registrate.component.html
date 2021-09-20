@@ -3,9 +3,9 @@
         <div class="cardi card">
             <div class="card-header text-center"><strong>REGISTRO</strong></div>
             <div class="card-body">
-                <form>
+                <form [formGroup]="form"  class="form" (ngSubmit)="onEnviar($event, cliente)" > <!--Como el ej de la profe-->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6"> 
                             <label class="px-1 pb-1" for="nombre">Nombre</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">
@@ -17,7 +17,12 @@
                                 </span>
 
 
-                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+                                <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="cliente.nombre" placeholder="Ingrese su nombre"  [class.border-danger]="NombreValid">
+                                <div *ngIf="Nombre?.errors  && Nombre?.touched">
+                                    <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                                      El nombre es requerido.
+                                    </p>
+                                </div>
                             </div>
 
                         </div>
@@ -33,7 +38,12 @@
                                 </span>
 
 
-                                <input type="text" class="form-control" placeholder="Ingrese su apellido">
+                                <input type="text" class="form-control" id="apellido" formControlName="apellido" [(ngModel)]="cliente.apellido" placeholder="Ingrese su apellido"  [class.border-danger]="ApellidoValid">
+                                <div *ngIf="Apellido?.errors  && Apellido?.touched">
+                                    <p *ngIf="Apellido?.hasError('required')" class="text-danger">
+                                      El apellido es requerido.
+                                    </p>
+                                </div>
                             </div>
 
                         </div>
@@ -53,7 +63,12 @@
                                 </span>
 
 
-                                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su número de DNI">
+                                <input type="text" class="form-control" id="dni" formControlName="dni" [(ngModel)]="cliente.dni" placeholder="Ingrese su número de DNI" [class.border-danger]="DniValid">
+                                <div *ngIf="Dni?.errors  && Dni?.touched">
+                                    <p *ngIf="Dni?.hasError('required')" class="text-danger">
+                                      El dni es requerido.
+                                    </p>
+                                </div>
                             </div>
 
                         </div>
@@ -73,7 +88,12 @@
                                         Selecciona un archivo</button>
 
 
-                                    <input type='file' id="getFile" style="display:none">
+                                    <input type='file' id="getFile"  formControlName="fotoDni" [(ngModel)]="cliente.fotoDni" style="display:none" [class.border-danger]="PasswordValid" >
+                                    <div *ngIf="Password?.errors  && Password?.touched">
+                                        <p *ngIf="Password?.hasError('required')" class="text-danger">
+                                          Foto del DNI Requerido.
+                                        </p>
+                                    </div>
                                 </span>
                             </div>
 
@@ -105,14 +125,14 @@
                                         </path>
                                     </svg>
                                 </span>
-                                <input type="text" class="form-control" id="inputCity" placeholder="Ingrese el nombre de su ciudad">
+                                <input type="text" class="form-control" id="ciudad" formControlName="ciudad" [(ngModel)]="cliente.ciudad" placeholder="Ingrese el nombre de su ciudad">
                             </div>
 
                         </div>
                         <div class="form-group col-md-4">
                             <label class="px-1" for="inputState">Provincia</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Seleccione una Provincia</option>
+                            <select id="inputState" class="form-control" id="provincia" formControlName="provincia" [(ngModel)]="cliente.provincia">
+                                <option selected>Seleccione una Provincia</option> 
                                 <option>Buenos Aires</option>
                                 <option>Catamarca</option>
                                 <option>Chaco</option>
@@ -140,7 +160,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="px-1" for="inputZip">Codigo Postal</label>
-                            <input type="text" class="form-control" id="inputZip" placeholder="Ej: 5800">
+                            <input type="text" class="form-control" id="cP" formControlName="cP" [(ngModel)]="cliente.cP" placeholder="Ej: 5800">
                         </div>
                     </div>
                     <div class="row">
@@ -158,7 +178,7 @@
                                     </svg>
                                 </span>
 
-                                <input type="text" placeholder="Crear su nombre de usuario" class="form-control" id="inputUser">
+                                <input type="text" placeholder="Crear su nombre de usuario" class="form-control"  id="nombreUsuario" formControlName="nombreUsuario" [(ngModel)]="cliente.nombreUsuario">
                             </div>
 
                         </div>
@@ -172,13 +192,13 @@
                                             d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
                                     </svg>
                                 </span>
-                                <input type="email" placeholder="Ingrese su dirección de e-mail" class="form-control" [formControl]="mail" id="inputEmail" aria-describedby="emailHelp">
+                                <input type="email" placeholder="Ingrese su dirección de e-mail" class="form-control"  id="email" formControlName="email" [(ngModel)]="cliente.email" aria-describedby="emailHelp">
                             </div>
-                            <div *ngIf="mailField.invalid && (mailField.dirty || mailField.touched)" class='text-danger'>
-                                <small *ngIf="mailField.hasError('pattern')">
+                            <div *ngIf="Email?.errors && Email?.touched" class='text-danger'>
+                                <small *ngIf="Email.hasError('pattern')">
                                     Email no valido
                                 </small>
-                                <small *ngIf="passwordField.hasError('required')">
+                                <small *ngIf="Email.hasError('required')">
                                     Debe ingresar una dirección de e-mail
                                 </small>
                             </div>
@@ -197,16 +217,16 @@
                                             d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                                     </svg>
                                 </span>
-                                <input type="password" placeholder="Ingrese una contraseña" class="form-control" [formControl]="password" id="inputPassword">
+                                <input type="password" placeholder="Ingrese una contraseña" class="form-control"  id="password" formControlName="password" [(ngModel)]="cliente.password" [class.border-danger]="PasswordValid">
                             </div>
-                            <div class="p-3" *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)" class='text-danger'>
-                                <small *ngIf="passwordField.hasError('pattern')">
+                            <div class="p-3" *ngIf="Password?.errors && Password?.touched" class='text-danger'>
+                                <small *ngIf="Password.hasError('pattern')">
                                     La clave debe contener una letra Mayuscula y *
                                 </small>
-                                <small *ngIf="passwordField.hasError('minlength')">
-                                    El minimo de digitos requerido es 8.
+                                <small *ngIf="Password.hasError('minlength')">
+                                    El minimo de digitos requerido es 6.
                                 </small>
-                                <small *ngIf="passwordField.hasError('required')">
+                                <small *ngIf="Password.hasError('required')">
                                     La contraseña es requerida.
                                 </small>
 
@@ -225,17 +245,20 @@
                                             d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                                     </svg>
                                 </span>
-                                <input type="password" placeholder="Repetir contraseña" class="form-control" [formControl]="password" id="inputPassword">
+                                <input type="password" placeholder="Repetir contraseña" class="form-control"  id="password2"  formControlName="password2" [(ngModel)]="cliente.password2" [class.border-danger]="Password2Valid">
                             </div>
-                            <div class="p-3" *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)" class='text-danger'>
-                                <small *ngIf="passwordField.hasError('pattern')">
+                            <div class="p-3" *ngIf="Password2?.errors && Password2?.touched" class='text-danger'>
+                                <small *ngIf="Password2.hasError('pattern')">
                                     La clave debe contener una letra Mayuscula y *
                                 </small>
-                                <small *ngIf="passwordField.hasError('minlength')">
-                                    El minimo de digitos requerido es 8.
+                                <small *ngIf="Password2.hasError('minlength')">
+                                    El minimo de digitos requerido es 6.
                                 </small>
-                                <small *ngIf="passwordField.hasError('required')">
+                                <small *ngIf="Password2.hasError('required')">
                                     La contraseña es requerida.
+                                </small>
+                                <small *ngIf="Password2.hasError('noPasswordMatch')">
+                                    Las contraseñas no son iguales
                                 </small>
 
                             </div>
