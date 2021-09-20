@@ -33,10 +33,10 @@ export class PaginaPrincipalComponent implements OnInit {
   ngOnInit(): void {
     this.cuentaService.obtenerCuenta(9).subscribe(
       data=> {
-        console.log(data); // fijate si este data te trae la info antes y despues descomenta lo que esta abajo
-        //this.datoMovimiento=data['Movimientos'];
-        //this.tipoDeCuenta=data['Tipo_Cuenta1'];
-        //this.cbu=data['CBU1'];
+        //console.log(data); 
+        this.datoMovimiento=data['Movimientos'];
+        this.tipoDeCuenta=data['Tipo_Cuenta1'];
+        this.cbu=data['CBU1'];
         
       }
     );
