@@ -11,6 +11,8 @@ import { OperatoriaPesosModule } from './operatoria-pesos/operatoria-pesos.modul
 import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ParticlesModule } from 'angular-particle';
+import { CuentaService } from 'src/Servicios/cuenta.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,9 +30,10 @@ import { ParticlesModule } from 'angular-particle';
     OperatoriaPesosModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ParticlesModule
+    ParticlesModule,
+    HttpClientModule,
 ],
-  providers: [],
+  providers: [CuentaService],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
   
