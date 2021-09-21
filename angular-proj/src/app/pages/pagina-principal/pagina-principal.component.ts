@@ -31,7 +31,7 @@ export class PaginaPrincipalComponent implements OnInit {
   constructor(private cuentaService : CuentaService) { }
 
   ngOnInit(): void {
-    this.cuentaService.obtenerCuenta(9).subscribe(
+    this.cuentaService.obtenerCuenta(15).subscribe(
       data=> {
         //console.log(data); 
         this.datoMovimiento=data['Movimientos'];

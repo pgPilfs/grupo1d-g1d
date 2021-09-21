@@ -10,9 +10,9 @@ namespace DcWallet_BackEnd
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
-            // Web API routes
             config.EnableCors();
+            // Web API routes
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

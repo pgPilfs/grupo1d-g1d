@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using static MVCWebApi.Models.Cuenta;
 using DcWallet_BackEnd.Models.Models;
 
+
 namespace MVCWebApi.Models
 {
     public class GestorCuenta
@@ -16,7 +17,8 @@ namespace MVCWebApi.Models
         public int AltaCuenta(Cuenta cuenta)
         {
             var cbu = GenerarCbu();
-       
+            
+
             string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
              
 
@@ -38,6 +40,10 @@ namespace MVCWebApi.Models
             }
         }
 
+
+
+        //variable Total para calcular el saldo de la cuenta
+        
         /// <summary>
         /// Busca cuenta por CBU. Si encuentra devuelve la cuenta, si no devuelve null
         /// </summary>
@@ -63,6 +69,7 @@ namespace MVCWebApi.Models
                     var IdCliente1 = dr.GetInt32(1);
                     var Tipo_Cuenta1 = dr.GetString(2).Trim();
                     var cbu = dr.GetString(3).Trim();
+                    
 
                     cuenta = new Cuenta(Id, IdCliente1, cbu, Tipo_Cuenta1);
 
@@ -92,32 +99,7 @@ namespace MVCWebApi.Models
 
         }
 
-        //Obtener saldo 
 
-        public decimal ObtenerSaldo(int idCuenta)
-        {
-
-            string StrConn = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
-            decimal saldo = 0;
-
-            using (SqlConnection connec = new SqlConnection(StrConn))
-            {
-                connec.Open();
-
-                SqlCommand comm = new SqlCommand("MOSTRAR SALDO", connec);
-                comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@idCuenta", idCuenta));
-
-                SqlDataReader reader = comm.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    saldo = reader.GetDecimal(4);
-                }
-
-            }
-            return saldo;
-        }
 
         //mostrar cuenta y ultimos movimientos 
         public Cuenta ObtenerCuenta(int Id1)
@@ -126,6 +108,7 @@ namespace MVCWebApi.Models
             Movimiento movimiento = null;
             List<Movimiento> lista = new List<Movimiento>();
 
+            
 
 
             string StrConn = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
@@ -147,6 +130,7 @@ namespace MVCWebApi.Models
                     var IdCliente1 = dr.GetInt32(1);
                     var Tipo_Cuenta1 = dr.GetString(2).Trim();
                     var CBU = dr.GetString(3).Trim();
+                    //var saldo = Total;
 
                     Cuenta = new Cuenta(Id, IdCliente1, CBU, Tipo_Cuenta1);
 
@@ -159,17 +143,22 @@ namespace MVCWebApi.Models
 
                     while (dr.Read())
                     {
-                        DateTime fechahora = dr.GetDateTime(2);
-                        double monto = dr.GetDouble(3);
-                        int idCuenta = dr.GetInt32(4);
-                        int cuentaExternaId = dr.IsDBNull(5) ? dr.GetInt32(5) : 0;
-                        string tipoMovimiento = dr.GetString(6).Trim();
-                        movimiento = new Movimiento(fechahora, monto, idCuenta, cuentaExternaId, tipoMovimiento);
+                        DateTime fechahora = dr.GetDateTime(1);
+                        decimal monto = dr.GetDecimal(2);
+                        int idCuenta = dr.GetInt32(3);
+                        int cuentaExternaId = 0;
+                        //int cuentaExternaId = dr.IsDBNull(5) ? dr.GetInt32(5) : 0;
+                        int tipoMovimiento = dr.GetInt32(4);
+                        decimal SaldoTotal = calcSaldo(tipoMovimiento, monto);
+
+                        movimiento = new Movimiento(fechahora, monto, idCuenta, cuentaExternaId, tipoMovimiento, SaldoTotal);
                         Cuenta.Movimientos.Add(movimiento);
 
+                        
 
                     }
                     dr.Close();
+
 
                 }
 
@@ -177,7 +166,27 @@ namespace MVCWebApi.Models
 
             return Cuenta;
         }
-    
+
+        public decimal calcSaldo(int tipomovi , decimal monto)
+        {
+            decimal Total = 0;
+            // 1 = Extraccion 2 = Deposito si es null es porque no hay movimientos 
+            if (tipomovi == 1)
+            {
+                Total = Total - monto;
+            }
+            else if (tipomovi == 2)
+            {
+                Total = Total + monto;
+            }
+            else
+            {
+                Total = Total + 0;
+            }
+
+            return Total;
+        }
+
         public string GenerarCbu()
         {
             var random = new Random();

@@ -1,17 +1,18 @@
 ﻿using static MVCWebApi.Models.GestorCuenta;
 using static MVCWebApi.Models.Cuenta;
-using MVCWebApi.Models;
+using System.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Data.SqlClient;
-using System.Web.Mvc;
-using System.Configuration;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using MVCWebApi.Models;
+using System.Web.Http.Cors;
 
 namespace DC_WALLET_Back.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CuentaController : ApiController
     {
         // GET: Cuenta
@@ -39,8 +40,6 @@ namespace DC_WALLET_Back.Controllers
             if (cuenta != null) return Ok(cuenta);
             return NotFound();
         }*/
-
-
 
 
         //post cuenta
