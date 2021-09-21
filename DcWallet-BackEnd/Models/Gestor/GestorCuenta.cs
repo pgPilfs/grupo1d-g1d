@@ -149,9 +149,11 @@ namespace MVCWebApi.Models
                         int cuentaExternaId = 0;
                         //int cuentaExternaId = dr.IsDBNull(5) ? dr.GetInt32(5) : 0;
                         int tipoMovimiento = dr.GetInt32(4);
+                        string NombreMomiviento = dr.GetString(6).Trim();
                         decimal SaldoTotal = calcSaldo(tipoMovimiento, monto);
 
-                        movimiento = new Movimiento(fechahora, monto, idCuenta, cuentaExternaId, tipoMovimiento, SaldoTotal);
+
+                        movimiento = new Movimiento(fechahora, monto, idCuenta, cuentaExternaId, tipoMovimiento, SaldoTotal, NombreMomiviento);
                         Cuenta.Movimientos.Add(movimiento);
 
                         

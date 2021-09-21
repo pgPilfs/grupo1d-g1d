@@ -18,8 +18,9 @@ namespace DcWallet_BackEnd.Models.Models
         private int cuentaExternaId;
         private int tipoMovimientos;
         private decimal SaldoTotal;
+        private string NombreMovimiento;
 
-        public Movimiento(DateTime fechaMovimientos, decimal monto, int idCuenta, int cuentaExternaId, int tipoMovimientos, decimal saldoTotal)
+        public Movimiento(DateTime fechaMovimientos, decimal monto, int idCuenta, int cuentaExternaId, int tipoMovimientos, decimal saldoTotal, string nombreMovimiento)
         {
 
             FechaMovimientos = fechaMovimientos;
@@ -28,6 +29,7 @@ namespace DcWallet_BackEnd.Models.Models
             CuentaExternaId = cuentaExternaId;
             TipoMovimientos = tipoMovimientos;
             SaldoTotal1 = saldoTotal;
+            NombreMovimiento1 = nombreMovimiento;
         }
 
         public int IdMovimientos { get => idMovimientos; set => idMovimientos = value; }
@@ -37,5 +39,6 @@ namespace DcWallet_BackEnd.Models.Models
         public int CuentaExternaId { get => cuentaExternaId; set => cuentaExternaId = value; }
         public int TipoMovimientos { get => tipoMovimientos; set => tipoMovimientos = value; }
         public decimal SaldoTotal1 { get => SaldoTotal; set => SaldoTotal = value; }
+        public string NombreMovimiento1 { get => NombreMovimiento; set => NombreMovimiento = value; }
     }
 }
