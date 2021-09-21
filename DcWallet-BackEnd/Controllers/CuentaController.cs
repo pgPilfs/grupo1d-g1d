@@ -17,51 +17,47 @@ namespace DC_WALLET_Back.Controllers
         // GET: Cuenta
 
 
-        public Cuenta Get(int Id1)
+        public Cuenta Get(int id)
         {
             GestorCuenta Cuenta = new GestorCuenta();
-            return Cuenta.ObtenerCuenta(Id1);
+            return Cuenta.ObtenerCuenta(id);
         }
 
-        [System.Web.Mvc.HttpGet()]
+        public Cuenta Get(string cbu)
+        {
+            GestorCuenta cuenta_cbu = new GestorCuenta();
+            return cuenta_cbu.ObtenerxCbu(cbu);
+        }
+
+
+        /*[System.Web.Mvc.HttpGet()]
         public IHttpActionResult GetxCBU([FromUri] string cbu)
         {
             GestorCuenta gestorCuenta = new GestorCuenta();
             var cuenta = gestorCuenta.ObtenerxCbu(cbu);
+            
             if (cuenta != null) return Ok(cuenta);
             return NotFound();
-        }
-
-
-        /*public Cuenta Get(int idCuenta)
-        {
-            GestorCuenta cuenta = new GestorCuenta();
-            decimal saldo =  cuenta.ObtenerSaldo(idCuenta);
-
-            if (saldo == 0)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(saldo);
-            }
-
         }*/
+
+
+
 
         //post cuenta
 
-        public void Post([FromBody] Cuenta value)
+        /*public void Post([FromBody] Cuenta value)
         {
             GestorCuenta Cuenta = new GestorCuenta();
             Cuenta.AltaCuenta(value.IdCliente1, value.Tipo_Cuenta1);
+        }*/
+
+        public void Post([FromBody] Cuenta value)
+        {
+            GestorCuenta gCuenta = new GestorCuenta();
+            gCuenta.AltaCuenta(value);
+            //return value;
         }
-        
 
-
-
-
-
-
+       
     }
 }
