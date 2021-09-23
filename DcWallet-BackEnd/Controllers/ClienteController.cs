@@ -8,22 +8,24 @@ using MVCWebApi.Models;
 
 namespace MVCWebApi.Controllers
 {
-    public class ClienteController : ApiController
-    {//Hola
-        // GET api/<controller>//
+    public class ClienteController : ApiController}
+
         public IEnumerable<string> Get()
+
         {
-            return new string[] { "value1", "value2" };
+            GestorCliente gCliente = new GestorCliente();
+            return gCliente.ObtenerClientes();
         }
 
         // GET api/<controller>/5
-        public Cliente Get(int id)//holaaa 22
+        public Cliente Get(int id)
+
         {
             GestorCliente gestorCliente = new GestorCliente();
             return gestorCliente.ObtenerCliente(id);
         }
 
-        // POST api/<controller>
+        // POST api/<controller> //YA ANDA 
         public Cliente Post([FromBody] Cliente value)
         {
             GestorCliente gCliente = new GestorCliente();

@@ -43,7 +43,7 @@ namespace MVCWebApi.Models
                 comm.Parameters.Add(new SqlParameter("@fotodni", oCliente.FotoDni));
                 comm.Parameters.Add(new SqlParameter("@password", oCliente.Password));
 
-                comm.ExecuteNonQuery(); //me devuelve el numero de filas que fueron afectadas
+                //comm.ExecuteNonQuery(); //me devuelve el numero de filas que fueron afectadas
                 return Convert.ToInt32(comm.ExecuteScalar()); // con esto todas las rutas de acceso devuelven almenos un int
 
             }
@@ -122,7 +122,7 @@ namespace MVCWebApi.Models
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "obtener_clientes";
+                comm.CommandText = "listar_clientes";  //CAMBIO EN SERGIOCLIENTE3
                 comm.CommandType = CommandType.StoredProcedure;
 
                 SqlDataReader dr = comm.ExecuteReader();
