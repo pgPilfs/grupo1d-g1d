@@ -11,7 +11,11 @@ import { OperatoriaPesosModule } from './operatoria-pesos/operatoria-pesos.modul
 import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ParticlesModule } from 'angular-particle';
+<<<<<<< HEAD
 import { CuentaService } from 'src/Servicios/cuenta.service';
+=======
+import { ClienteService } from '../servicios/cliente.service';
+>>>>>>> SergioRegistroCORS
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -31,9 +35,15 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     ParticlesModule,
+<<<<<<< HEAD
     HttpClientModule,
 ],
   providers: [CuentaService],
+=======
+    HttpClientModule
+],
+  providers: [ClienteService],
+>>>>>>> SergioRegistroCORS
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
   

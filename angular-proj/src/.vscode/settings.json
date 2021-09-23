@@ -1,0 +1,14 @@
+{
+    "emmet.preferences": {
+    
+    },
+
+    
+        "compilerOptions": {
+            "experimentalDecorators": true,
+            "target": "es5",
+            "allowJs": true
+        }
+    
+}
+
