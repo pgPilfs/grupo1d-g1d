@@ -10,14 +10,14 @@ namespace MVCWebApi.Controllers
 {
     public class ClienteController : ApiController
     {//Hola
-        // GET api/<controller>
+        // GET api/<controller>//
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/<controller>/5
-        public Cliente Get(int id)
+        public Cliente Get(int id)//holaaa 22
         {
             GestorCliente gestorCliente = new GestorCliente();
             return gestorCliente.ObtenerCliente(id);
