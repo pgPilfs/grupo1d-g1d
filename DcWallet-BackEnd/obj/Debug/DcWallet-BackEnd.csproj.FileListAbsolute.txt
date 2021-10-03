@@ -174,3 +174,14 @@ C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\obj\Debug\DcWall
 C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\obj\Debug\DcWallet-BackEnd.csproj.CopyComplete
 C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\obj\Debug\DcWallet-BackEnd.dll
 C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\obj\Debug\DcWallet-BackEnd.pdb
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\es\System.Net.Http.Formatting.resources.dll
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\es\System.Web.Http.resources.dll
+C:\Users\54351\Desktop\PilProyect2\grupo1d-g1d\DcWallet-BackEnd\bin\es\System.Web.Http.WebHost.resources.dll
