@@ -12,7 +12,10 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ParticlesModule } from 'angular-particle';
 import { ClienteService } from '../servicios/cliente.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from './src/app/servicios/auth.service';
+import { JwtInterceptor } from './src/app/servicios/interceptor.service';
+import { ErrorInterceptor } from './src/app/servicios/error.service';
 
 
 
@@ -31,9 +34,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     ParticlesModule,
-    HttpClientModule
+    HttpClientModule,
+   // DatePipe
 ],
-  providers: [ClienteService],
+  providers: [ClienteService, AuthService, 
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
   
