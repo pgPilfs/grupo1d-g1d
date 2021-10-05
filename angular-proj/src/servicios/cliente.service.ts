@@ -37,5 +37,5 @@ export class Persona
 export class  LoginRequest {
   UserName:string="";
   Password:string="";
-  Token: string="";
+  Token?: string;
 }

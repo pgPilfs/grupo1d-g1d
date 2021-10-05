@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LoginRequest } from '../../../../servicios/cliente.service';
+import { LoginRequest } from '../../servicios/cliente.service';
 import {HttpClient} from '@angular/common/http';
 const TOKEN_KEY = 'auth-token';
 
@@ -25,7 +25,11 @@ export class AuthService {
 
   login(usuario: LoginRequest): Observable<any> {
     return this.http.post<LoginRequest>(this.url, usuario).pipe(map(data => {
-      localStorage.setItem(TOKEN_KEY, data.Token);
+      // localStorage.setItem(TOKEN_KEY, data.Token);
+      if (data.Token)
+      {
+        localStorage.setItem(TOKEN_KEY, data.Token);
+      }
                         
       this.currentUserSubject.next(data);
       this.loggedIn.next(true);

@@ -13,9 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ParticlesModule } from 'angular-particle';
 import { ClienteService } from '../servicios/cliente.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from './src/app/servicios/auth.service';
-import { JwtInterceptor } from './src/app/servicios/interceptor.service';
-import { ErrorInterceptor } from './src/app/servicios/error.service';
+import { AuthService } from './servicios/auth.service';
+import { JwtInterceptor } from './servicios/interceptor.service';
+import { ErrorInterceptor } from './servicios/error.service';
 
 
 
