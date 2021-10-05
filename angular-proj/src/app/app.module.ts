@@ -16,6 +16,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './servicios/auth.service';
 import { JwtInterceptor } from './servicios/interceptor.service';
 import { ErrorInterceptor } from './servicios/error.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 
 
@@ -35,6 +36,8 @@ import { ErrorInterceptor } from './servicios/error.service';
     BrowserAnimationsModule,
     ParticlesModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
    // DatePipe
 ],
   providers: [ClienteService, AuthService, 

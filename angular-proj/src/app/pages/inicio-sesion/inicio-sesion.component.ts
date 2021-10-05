@@ -11,25 +11,25 @@ import { AuthService } from '../../servicios/auth.service';
   styleUrls: ['./inicio-sesion.component.css']
 })
 export class InicioSesionComponent implements OnInit {
- 
-  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  mail = new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]); 
-  
-  passwordPattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/";
-  password = new FormControl('', [Validators.required , Validators.pattern(this.passwordPattern), Validators.minLength(8)]); 
 
-   
-  
-    form: FormGroup;
-    usuario: LoginRequest = new LoginRequest(); 
+  usuario: LoginRequest = new LoginRequest(); 
+  mail = new FormControl('', [Validators.required]); 
+  password = new FormControl('', [Validators.required , Validators.minLength(8)]); 
+
+    form: FormGroup;  
     error: string="";
+
+    // emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"; , Validators.pattern(this.emailPattern)
+  // passwordPattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/"; , Validators.pattern(this.passwordPattern)
+  
 
   constructor(private formBuilder: FormBuilder,private authService: AuthService,
     private router: Router) {
     this.form= this.formBuilder.group(
       {
-        password:['',[Validators.required, Validators.minLength(8)]],
-        mail:['', [Validators.required, Validators.email]]   
+        mail:['', [Validators.required, Validators.email]]   ,
+        password:['',[Validators.required, Validators.minLength(8)]]
+        
       }
     )
 
