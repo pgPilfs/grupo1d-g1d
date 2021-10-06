@@ -9,18 +9,20 @@ using System.Web.Http.Cors;
 
 namespace MVCWebApi.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ClienteController : ApiController
     {
         // GET api/<controller>
         public IEnumerable<Cliente> Get()  // YA ANDA
+
         {
             GestorCliente gCliente = new GestorCliente();
             return gCliente.ObtenerClientes();
         }
 
         // GET api/<controller>/5
-        public Cliente Get(int id) //YA ANDA
+        public Cliente Get(int id)
+
         {
             GestorCliente gestorCliente = new GestorCliente();
             return gestorCliente.ObtenerCliente(id);

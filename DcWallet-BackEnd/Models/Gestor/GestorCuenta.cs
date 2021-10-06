@@ -8,15 +8,20 @@ using System.Data.SqlClient;
 using static MVCWebApi.Models.Cuenta;
 using DcWallet_BackEnd.Models.Models;
 
+
 namespace MVCWebApi.Models
 {
     public class GestorCuenta
     {
         
-        public void AltaCuenta(int clienteId, string tipoCuenta)
+        public int AltaCuenta(Cuenta cuenta)
         {
-            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
             var cbu = GenerarCbu();
+            
+
+            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
+             
+
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 conn.Open();
@@ -24,22 +29,27 @@ namespace MVCWebApi.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "CREAR CUENTA";
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@IdCuenta", 12));
-                comm.Parameters.Add(new SqlParameter("@TipoCuenta", tipoCuenta));
-                comm.Parameters.Add(new SqlParameter("@ClienteId", clienteId));
+                //comm.Parameters.Add(new SqlParameter("@IdCuenta", ));
+                comm.Parameters.Add(new SqlParameter("@IdCliente", cuenta.IdCliente1));
+                comm.Parameters.Add(new SqlParameter("@TipoCuenta", cuenta.Tipo_Cuenta1));
                 comm.Parameters.Add(new SqlParameter("@CBU", cbu));
 
-                comm.ExecuteNonQuery();
+                //comm.ExecuteNonQuery();
+                return Convert.ToInt32(comm.ExecuteScalar());
 
             }
         }
 
+
+
+        //variable Total para calcular el saldo de la cuenta
+        
         /// <summary>
         /// Busca cuenta por CBU. Si encuentra devuelve la cuenta, si no devuelve null
         /// </summary>
         /// <param name="cbu"></param>
         /// <returns></returns>
-        public Cuenta ObtenerxCbu(string cbu)
+        public Cuenta ObtenerxCbu(string CBU)
         {
             string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
             Cuenta cuenta = null;
@@ -50,7 +60,7 @@ namespace MVCWebApi.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "Obtener_Cbu";
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@cbu", cbu));
+                comm.Parameters.Add(new SqlParameter("@cbu", CBU));
 
                 SqlDataReader dr = comm.ExecuteReader();
                 if (dr.Read())
@@ -58,9 +68,10 @@ namespace MVCWebApi.Models
                     var Id = dr.GetInt32(0);
                     var IdCliente1 = dr.GetInt32(1);
                     var Tipo_Cuenta1 = dr.GetString(2).Trim();
-                    var CBU = dr.GetString(3);
+                    var cbu = dr.GetString(3).Trim();
+                    
 
-                    cuenta = new Cuenta(Id, IdCliente1, CBU, Tipo_Cuenta1);
+                    cuenta = new Cuenta(Id, IdCliente1, cbu, Tipo_Cuenta1);
 
 
                     dr.Close();
@@ -88,32 +99,7 @@ namespace MVCWebApi.Models
 
         }
 
-        //Obtener saldo 
 
-        public decimal ObtenerSaldo(int idCuenta)
-        {
-
-            string StrConn = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
-            decimal saldo = 0;
-
-            using (SqlConnection connec = new SqlConnection(StrConn))
-            {
-                connec.Open();
-
-                SqlCommand comm = new SqlCommand("MOSTRAR SALDO", connec);
-                comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@idCuenta", idCuenta));
-
-                SqlDataReader reader = comm.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    saldo = reader.GetDecimal(4);
-                }
-
-            }
-            return saldo;
-        }
 
         //mostrar cuenta y ultimos movimientos 
         public Cuenta ObtenerCuenta(int Id1)
@@ -122,6 +108,7 @@ namespace MVCWebApi.Models
             Movimiento movimiento = null;
             List<Movimiento> lista = new List<Movimiento>();
 
+            
 
 
             string StrConn = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
@@ -139,10 +126,11 @@ namespace MVCWebApi.Models
 
                 if (dr.Read())
                 {
-                    var Id = dr.GetInt32(1);
-                    var IdCliente1 = dr.GetInt32(2);
-                    var Tipo_Cuenta1 = dr.GetString(3).Trim();
-                    var CBU = dr.GetString(4);
+                    var Id = dr.GetInt32(0);
+                    var IdCliente1 = dr.GetInt32(1);
+                    var Tipo_Cuenta1 = dr.GetString(2).Trim();
+                    var CBU = dr.GetString(3).Trim();
+                    //var saldo = Total;
 
                     Cuenta = new Cuenta(Id, IdCliente1, CBU, Tipo_Cuenta1);
 
@@ -155,17 +143,24 @@ namespace MVCWebApi.Models
 
                     while (dr.Read())
                     {
-                        DateTime fechahora = dr.GetDateTime(2);
-                        double monto = dr.GetDouble(3);
-                        int idCuenta = dr.GetInt32(4);
-                        int cuentaExternaId = dr.IsDBNull(5) ? dr.GetInt32(5) : 0;
-                        string tipoMovimiento = dr.GetString(6).Trim();
-                        movimiento = new Movimiento(fechahora, monto, idCuenta, cuentaExternaId, tipoMovimiento);
+                        DateTime fechahora = dr.GetDateTime(1);
+                        decimal monto = dr.GetDecimal(2);
+                        int idCuenta = dr.GetInt32(3);
+                        int cuentaExternaId = 0;
+                        //int cuentaExternaId = dr.IsDBNull(5) ? dr.GetInt32(5) : 0;
+                        int tipoMovimiento = dr.GetInt32(4);
+                        string NombreMomiviento = dr.GetString(6).Trim();
+                        decimal SaldoTotal = calcSaldo(tipoMovimiento, monto);
+
+
+                        movimiento = new Movimiento(fechahora, monto, idCuenta, cuentaExternaId, tipoMovimiento, SaldoTotal, NombreMomiviento);
                         Cuenta.Movimientos.Add(movimiento);
 
+                        
 
                     }
                     dr.Close();
+
 
                 }
 
@@ -173,7 +168,27 @@ namespace MVCWebApi.Models
 
             return Cuenta;
         }
-    
+
+        public decimal calcSaldo(int tipomovi , decimal monto)
+        {
+            decimal Total = 0;
+            // 1 = Extraccion 2 = Deposito si es null es porque no hay movimientos 
+            if (tipomovi == 1)
+            {
+                Total = Total - monto;
+            }
+            else if (tipomovi == 2)
+            {
+                Total = Total + monto;
+            }
+            else
+            {
+                Total = Total + 0;
+            }
+
+            return Total;
+        }
+
         public string GenerarCbu()
         {
             var random = new Random();

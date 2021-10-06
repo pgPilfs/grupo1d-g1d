@@ -11,6 +11,7 @@ import { OperatoriaPesosModule } from './operatoria-pesos/operatoria-pesos.modul
 import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ParticlesModule } from 'angular-particle';
+import { CuentaService } from '../Servicios/cuenta.service';
 import { ClienteService } from '../servicios/cliente.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './servicios/auth.service';

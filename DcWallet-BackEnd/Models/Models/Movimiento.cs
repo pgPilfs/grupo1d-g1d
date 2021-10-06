@@ -13,12 +13,14 @@ namespace DcWallet_BackEnd.Models.Models
     {
         private int idMovimientos;
         private DateTime fechaMovimientos;
-        private double monto;
+        private decimal monto;
         private int idCuenta;
         private int cuentaExternaId;
-        private string tipoMovimientos;
+        private int tipoMovimientos;
+        private decimal SaldoTotal;
+        private string NombreMovimiento;
 
-        public Movimiento(DateTime fechaMovimientos, double monto, int idCuenta, int cuentaExternaId, String tipoMovimientos)
+        public Movimiento(DateTime fechaMovimientos, decimal monto, int idCuenta, int cuentaExternaId, int tipoMovimientos, decimal saldoTotal, string nombreMovimiento)
         {
 
             FechaMovimientos = fechaMovimientos;
@@ -26,13 +28,17 @@ namespace DcWallet_BackEnd.Models.Models
             IdCuenta = idCuenta;
             CuentaExternaId = cuentaExternaId;
             TipoMovimientos = tipoMovimientos;
+            SaldoTotal1 = saldoTotal;
+            NombreMovimiento1 = nombreMovimiento;
         }
 
         public int IdMovimientos { get => idMovimientos; set => idMovimientos = value; }
         public DateTime FechaMovimientos { get => fechaMovimientos; set => fechaMovimientos = value; }
-        public double Monto { get => monto; set => monto = value; }
+        public decimal Monto { get => monto; set => monto = value; }
         public int IdCuenta { get => idCuenta; set => idCuenta = value; }
         public int CuentaExternaId { get => cuentaExternaId; set => cuentaExternaId = value; }
-        public string TipoMovimientos { get => tipoMovimientos; set => tipoMovimientos = value; }
+        public int TipoMovimientos { get => tipoMovimientos; set => tipoMovimientos = value; }
+        public decimal SaldoTotal1 { get => SaldoTotal; set => SaldoTotal = value; }
+        public string NombreMovimiento1 { get => NombreMovimiento; set => NombreMovimiento = value; }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CuentaService } from 'src/Servicios/cuenta.service';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -6,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagina-principal.component.css']
 })
 export class PaginaPrincipalComponent implements OnInit {
-  saldo:number = 400;
-   //con esta linea le damos formato a la fecha en tiempo real (hay que ver si se puede agregar al arreglo )
-  fecha:Date = new Date();
+  mostrar_movimientos=true;
+  cbu:any;
+  tipoDeCuenta: any;
+  datoMovimiento: any;
   
-  datos = [ {tipo : "Extraccion", monto:15000} ,
+
+  /*datos = [ {tipo : "Extraccion", monto:15000} ,
             {tipo: "Ingreso", monto : 3000},
             {tipo: "Ingreso", monto : 12000},
             {tipo: "Ingreso", monto : 2000}];
@@ -23,11 +26,21 @@ export class PaginaPrincipalComponent implements OnInit {
   datos3 = [ {tipo : "Ingreso", monto:15000} ,
               {tipo: "Extraccion", monto : 3000},
               {tipo: "Extraccion", monto : 12000},
-              {tipo: "Ingreso", monto : 2000}];
+              {tipo: "Ingreso", monto : 2000}];*/
 
-  constructor() { }
+  constructor(private cuentaService : CuentaService) { }
 
   ngOnInit(): void {
+    this.cuentaService.obtenerCuenta(15).subscribe(
+      data=> {
+        //console.log(data); 
+        this.datoMovimiento=data['Movimientos'];
+        this.tipoDeCuenta=data['Tipo_Cuenta1'];
+        this.cbu=data['CBU1'];
+        
+      }
+    );
+
   }
 
 }

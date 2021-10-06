@@ -25,3 +25,9 @@
     transition: background-color .5s;
     color:beige
 }
+
+.card{
+    margin:10px;
+    align-items:initial;
+
+}
