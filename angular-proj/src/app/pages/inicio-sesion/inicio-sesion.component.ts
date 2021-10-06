@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginRequest } from '../../../servicios/cliente.service';
+//import { LoginRequest } from '../../../servicios/cliente.service';
 import { AuthService } from '../../servicios/auth.service';
-
+import { LoginRequest } from '../../modelos/login.interface';
+import { ResponseI } from '../../modelos/response.interface';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -64,10 +65,10 @@ export class InicioSesionComponent implements OnInit {
         data => {
         console.log("DATA"+ JSON.stringify( data));
         //localStorage.setItem('auth-token', JSON.stringify(data ));
-if ( this.authService.estaAutenticado) {
-  this.router.navigate(['ingreso-pesos']);
-       
-}
+        if ( this.authService.estaAutenticado) {
+          this.router.navigate(['ingreso-pesos']);
+               
+        }
         
         },
         error => {
