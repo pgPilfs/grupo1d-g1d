@@ -22,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     OperatoriaPesosModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
 
     

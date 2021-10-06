@@ -33,3 +33,9 @@ export class Persona
   
   //A modo de ejemplo se deja así pero lo ideal es crear propiedades para acceder a los atributos.
 }
+
+export class LoginRequest {
+  Email:string = "";
+  Password:string = "";
+  Token?: string;
+}

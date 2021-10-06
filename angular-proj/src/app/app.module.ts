@@ -13,7 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ParticlesModule } from 'angular-particle';
 import { CuentaService } from '../Servicios/cuenta.service';
 import { ClienteService } from '../servicios/cliente.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from './servicios/auth.service';
+import { JwtInterceptor } from './servicios/interceptor.service';
+import { ErrorInterceptor } from './servicios/error.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 
 
@@ -32,10 +36,15 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     ParticlesModule,
-    HttpClientModule
-
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+   // DatePipe
 ],
-  providers: [ClienteService, CuentaService],
+  providers: [ClienteService, AuthService, 
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
   
