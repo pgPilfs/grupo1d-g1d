@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LoginRequest } from '../../servicios/cliente.service';
+import { LoginRequest } from '../../../../servicios/cliente.service';
 import {HttpClient} from '@angular/common/http';
 const TOKEN_KEY = 'auth-token';
 
@@ -18,6 +18,8 @@ export class AuthService {
   constructor(private http:HttpClient) {
     console.log("AUTH SERVICE WORKING");
     this.currentUserSubject = new  BehaviorSubject<LoginRequest>(JSON.parse(localStorage.getItem(TOKEN_KEY) || '{}'));
+    // localStorage.getItem(TOKEN_KEY) --> te devuelve un string que corresponde al token, 
+    // no un objeto completo que coincida con LoginRequest
     this.currentUser = this.currentUserSubject.asObservable();
     
  

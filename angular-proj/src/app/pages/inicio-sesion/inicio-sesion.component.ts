@@ -12,23 +12,20 @@ import { AuthService } from '../../servicios/auth.service';
 })
 export class InicioSesionComponent implements OnInit {
 
-  usuario: LoginRequest = new LoginRequest(); 
-  mail = new FormControl('', [Validators.required]); 
-  password = new FormControl('', [Validators.required , Validators.minLength(8)]); 
-
-    form: FormGroup;  
-    error: string="";
+  form: FormGroup;  
+  usuario: LoginRequest = new LoginRequest();
+  error: string="";
 
     // emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"; , Validators.pattern(this.emailPattern)
   // passwordPattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/"; , Validators.pattern(this.passwordPattern)
   
 
-  constructor(private formBuilder: FormBuilder,private authService: AuthService,
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,
     private router: Router) {
     this.form= this.formBuilder.group(
       {
         mail:['', [Validators.required, Validators.email]]   ,
-        password:['',[Validators.required, Validators.minLength(8)]]
+        password:['',[Validators.required, Validators.minLength(1)]]
         
       }
     )
@@ -40,12 +37,12 @@ export class InicioSesionComponent implements OnInit {
 
   get mailField()
   {
-    return this.form.get("mail");
+    return this.form.controls.mail;
   }
 
   get passField()
   {
-    return this.form.get("password");
+    return this.form.controls.password;
   }
 
   // get passInvalid()
@@ -60,18 +57,18 @@ export class InicioSesionComponent implements OnInit {
 
   onEnviar(event: Event, usuario: LoginRequest)
   {
-    event.preventDefault(); //Cancela la funcionalidad por default.
     if (this.form.valid)
     {
-      console.log(this.form.value); //se puede enviar al servidor...
       this.authService.login(this.usuario)
       .subscribe(
         data => {
         console.log("DATA"+ JSON.stringify( data));
         //localStorage.setItem('auth-token', JSON.stringify(data ));
-
-        this.router.navigate(['mi-billetera/movimientos']);
+if ( this.authService.estaAutenticado) {
+  this.router.navigate(['ingreso-pesos']);
        
+}
+        
         },
         error => {
          this.error = error;
