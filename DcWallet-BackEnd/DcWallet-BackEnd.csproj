@@ -198,6 +198,7 @@
     <Compile Include="Models\Gestor\GestorExtraer.cs" />
     <Compile Include="Models\Gestor\GestorTransferencia.cs" />
     <Compile Include="Models\Models\LoginRequest.cs" />
+    <Compile Include="Models\Models\LoginRespuesta.cs" />
     <Compile Include="Models\Models\Movimiento.cs" />
     <Compile Include="Models\Models\Transferencia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
