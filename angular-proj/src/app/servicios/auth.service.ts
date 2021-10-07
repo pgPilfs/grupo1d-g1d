@@ -33,10 +33,10 @@ export class AuthService {
  
   }
 
-  login(usuario: LoginRequest): Observable<ResponseI> {
+  login(usuario: LoginRequest): Observable<any> {
     return this.http.post<LoginRequest>(this.url, usuario).pipe(map(data => {
       // localStorage.setItem(TOKEN_KEY, data.Token);
-      console.log("Hola"+ResponseI);
+      console.log(data);
       if (data.Token)
       {
         localStorage.setItem(TOKEN_KEY, data.Token);

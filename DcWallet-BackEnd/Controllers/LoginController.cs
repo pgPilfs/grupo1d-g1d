@@ -62,7 +62,8 @@ namespace MVCWebApi.Controllers
             {
                 var rolename = "User";
                 var token = TokenGenerator.GenerateTokenJwt(login.Email, rolename);
-                return Ok(token);
+                LoginRespuesta Result = new LoginRespuesta(token, 70);
+                return Ok(Result);
             }
             // Unauthorized access
             return Unauthorized();
