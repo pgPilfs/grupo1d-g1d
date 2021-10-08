@@ -27,6 +27,9 @@
         <li class="nav-item">
           <a class="nav-link active itemNav" aria-current="page" routerLink="/registrate">Registrate</a>
         </li>
+        <li *ngIf="estaAutenticado" class="nav-item">
+          <a class="nav-link" (click)="onCerrarSesion()"  aria-current="page">Cerrar Sesión</a>
+        </li>
 
 
         <li class="item">

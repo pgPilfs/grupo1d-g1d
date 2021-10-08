@@ -14,9 +14,9 @@ import { ParticlesModule } from 'angular-particle';
 import { CuentaService } from '../Servicios/cuenta.service';
 import { ClienteService } from '../servicios/cliente.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from './servicios/auth.service';
-import { JwtInterceptor } from './servicios/interceptor.service';
-import { ErrorInterceptor } from './servicios/error.service';
+import { AuthService } from '../app/Servicios/auth.service';
+import { JwtInterceptor } from '../app/Servicios/interceptor.service';
+import { ErrorInterceptor } from '../app/Servicios/error.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 

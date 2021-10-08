@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs'; //Agregue BehaviorSubject a mano
-import { AuthService } from './auth.service';
+import { AuthService } from '../Servicios/auth.service';
 import { catchError, map, take } from 'rxjs/operators';
 
 @Injectable({
