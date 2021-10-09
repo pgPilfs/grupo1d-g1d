@@ -21,6 +21,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+import {AuthGuard } from '../app/Servicios/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     RouterModule
    // DatePipe
 ],
-  providers: [ClienteService, AuthService, 
+  providers: [ClienteService, AuthService, AuthGuard, AppRoutingModule,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

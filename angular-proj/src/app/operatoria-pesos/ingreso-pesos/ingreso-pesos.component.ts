@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
+import { AuthService } from '../../../app/Servicios/auth.service';
+import {AuthGuard } from '../../../app/Servicios/auth.guard';
 
 
 @Component({
