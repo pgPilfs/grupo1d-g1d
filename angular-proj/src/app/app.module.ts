@@ -18,8 +18,8 @@ import { AuthService } from '../app/Servicios/auth.service';
 import { JwtInterceptor } from '../app/Servicios/interceptor.service';
 import { ErrorInterceptor } from '../app/Servicios/error.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
-
-
+import { RouterModule } from '@angular/router';
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     ParticlesModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
    // DatePipe
 ],
   providers: [ClienteService, AuthService, 
@@ -46,7 +47,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
   
 })
 export class AppModule { }

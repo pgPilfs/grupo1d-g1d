@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CuentaService } from 'src/Servicios/cuenta.service';
+import { CuentaService } from '../../../Servicios/cuenta.service';
 
 @Component({
   selector: 'app-pagina-principal',
