@@ -111,7 +111,7 @@ namespace MVCWebApi.Models
             
 
 
-            string StrConn = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
+            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {

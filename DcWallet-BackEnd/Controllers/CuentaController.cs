@@ -13,6 +13,7 @@ using System.Web.Http.Cors;
 namespace DC_WALLET_Back.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [AllowAnonymous]
     public class CuentaController : ApiController
     {
         // GET: Cuenta

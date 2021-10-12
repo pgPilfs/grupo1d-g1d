@@ -17,7 +17,7 @@ namespace MVCWebApi.Models
         public int Registrar(Cliente oCliente)
         {
             //accedo a la cadena de conexion con 
-            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
+            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
             //creo este objeto de conexion para que viva en ese epacio de codigo
             using (SqlConnection conn = new SqlConnection(connection))
