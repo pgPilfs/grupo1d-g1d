@@ -61,7 +61,7 @@ namespace MVCWebApi.Controllers
             if (isUserValid)
             {
                 var rolename = "User";
-                var token = TokenGenerator.GenerateTokenJwt(login.Email, rolename);
+                var token = TokenGenerator.GenerateTokenJwt(login.Email, rolename); //genera el token y lo llama en esta variable
                 LoginRespuesta Result = new LoginRespuesta(token, 70);
                 return Ok(Result);
             }

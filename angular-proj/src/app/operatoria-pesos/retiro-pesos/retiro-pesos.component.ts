@@ -8,7 +8,7 @@ import { FormControl, Validators} from '@angular/forms';
 })
 export class RetiroPesosComponent implements OnInit {
 
-  saldo:number = 400;
+  saldo:number = 8000;
 
   retirar:boolean = false;
 
