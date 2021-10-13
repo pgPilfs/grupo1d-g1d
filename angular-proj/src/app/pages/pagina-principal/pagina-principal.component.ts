@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CuentaService } from '../../../Servicios/cuenta.service';
+// import {AuthService} from '../../../app/servicios/auth.service';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -27,11 +28,13 @@ export class PaginaPrincipalComponent implements OnInit {
               {tipo: "Extraccion", monto : 3000},
               {tipo: "Extraccion", monto : 12000},
               {tipo: "Ingreso", monto : 2000}];*/
-
-  constructor(private cuentaService : CuentaService) { }
+              // private authService : AuthService //Falto esto 
+  constructor(private cuentaService : CuentaService ) { }
 
   ngOnInit(): void {
-    this.cuentaService.obtenerCuenta(15).subscribe(
+    // this.authService 
+    // Quiero usar esto que me traigo del backend data.idCliente para crear el cbu
+    this.cuentaService.obtenerCuenta(18).subscribe(
       data=> {
         //console.log(data); 
         this.datoMovimiento=data['Movimientos'];

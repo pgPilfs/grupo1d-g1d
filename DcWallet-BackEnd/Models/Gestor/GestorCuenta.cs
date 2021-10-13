@@ -19,7 +19,7 @@ namespace MVCWebApi.Models
             var cbu = GenerarCbu();
             
 
-            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
+            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
              
 
             using (SqlConnection conn = new SqlConnection(connection))
@@ -51,7 +51,7 @@ namespace MVCWebApi.Models
         /// <returns></returns>
         public Cuenta ObtenerxCbu(string CBU)
         {
-            string connection = ConfigurationManager.ConnectionStrings["DBConn"].ToString();
+            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             Cuenta cuenta = null;
             using (SqlConnection conn = new SqlConnection(connection))
             {

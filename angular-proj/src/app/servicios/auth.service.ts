@@ -39,6 +39,7 @@ export class AuthService {
       console.log(data);
       if (data.Token)
       {
+        console.log("ESTOY ACA"+data.idCliente);
         localStorage.setItem(TOKEN_KEY, data.Token);
       }
                         

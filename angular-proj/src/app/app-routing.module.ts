@@ -37,7 +37,7 @@ const routes: Routes = [
   {path: 'pagina-principal', component: PaginaPrincipalComponent,  canActivate: [AuthGuard]},
  
   {path: 'registrate', component: RegistrateComponent},  
-  {path: " ", redirectTo: '/home', pathMatch: 'full'}
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
