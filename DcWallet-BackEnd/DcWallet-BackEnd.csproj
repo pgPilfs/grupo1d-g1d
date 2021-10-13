@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="Models\Gestor\GestorCliente.cs" />
     <Compile Include="Models\Gestor\GestorLoginRequest.cs" />
+    <Compile Include="Models\Gestor\GestorLoginRespuesta.cs" />
     <Compile Include="Models\Models\Cliente.cs" />
     <Compile Include="Models\Models\Cuenta.cs" />
     <Compile Include="Models\Models\Deposito.cs" />

@@ -47,8 +47,10 @@ namespace MVCWebApi.Controllers
             }
 
             GestorLoginRequest gLogin = new GestorLoginRequest();
+            GestorLoginRespuesta gRespuesta = new GestorLoginRespuesta();
             //Creo el objeto Login pasandole el parametro Username
             LoginRequest credentials = gLogin.Login(login.Email);
+            LoginRespuesta response = gRespuesta.Respuesta(login.Email);
             var isUserValid = false;
             //Si el Username o el Password no coinciden el usuario sigue siendo invalido 
 
@@ -62,7 +64,8 @@ namespace MVCWebApi.Controllers
             {
                 var rolename = "User";
                 var token = TokenGenerator.GenerateTokenJwt(login.Email, rolename); //genera el token y lo llama en esta variable
-                LoginRespuesta Result = new LoginRespuesta(token, 70);
+                //var id = credentials.idCliente
+                LoginRespuesta Result = new LoginRespuesta(token, response.idCliente, response.Nombre, response.Apellido, response.NombreUsuario);
                 return Ok(Result);
             }
             // Unauthorized access
