@@ -12,6 +12,7 @@ export class PaginaPrincipalComponent implements OnInit {
   cbu:any;
   tipoDeCuenta: any;
   datoMovimiento: any;
+  id: number = 0; //Declaro la variable donde voy a guardar el id que traigo del local storage
   
 
   /*datos = [ {tipo : "Extraccion", monto:15000} ,
@@ -32,9 +33,12 @@ export class PaginaPrincipalComponent implements OnInit {
   constructor(private cuentaService : CuentaService ) { }
 
   ngOnInit(): void {
-    // this.authService 
-    // Quiero usar esto que me traigo del backend data.idCliente para crear el cbu
-    this.cuentaService.obtenerCuenta(18).subscribe(
+    // this.id
+    // Quiero usar esto que me traigo del local storage el dato que llame ID en auth service
+    this.id  = Number(localStorage.getItem("ID"));
+  // lo vuelvo un numero y aca lo se lo paso a obtener cuenta 
+  //que enrealidad deberia pasarle el idCuenta y le estoy pasando el idCliente 
+    this.cuentaService.obtenerCuenta(this.id).subscribe(
       data=> {
         //console.log(data); 
         this.datoMovimiento=data['Movimientos'];
