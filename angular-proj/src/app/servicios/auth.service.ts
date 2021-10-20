@@ -42,6 +42,8 @@ export class AuthService {
         // console.log("ESTOY ACA"+data.idCliente);
         localStorage.setItem(TOKEN_KEY, data.Token);
         localStorage.setItem("ID", data.idCliente);
+        localStorage.setItem("Nombre", data.Nombre);
+        localStorage.setItem("Apellido", data.Apellido);
       }
                         
       this.currentUserSubject.next(data);

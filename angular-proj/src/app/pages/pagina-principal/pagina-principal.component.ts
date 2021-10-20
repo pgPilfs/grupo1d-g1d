@@ -36,6 +36,7 @@ export class PaginaPrincipalComponent implements OnInit {
     // this.id
     // Quiero usar esto que me traigo del local storage el dato que llame ID en auth service
     this.id  = Number(localStorage.getItem("ID"));
+    
   // lo vuelvo un numero y aca lo se lo paso a obtener cuenta 
   //que enrealidad deberia pasarle el idCuenta y le estoy pasando el idCliente 
     this.cuentaService.obtenerCuenta(this.id).subscribe(

@@ -3,5 +3,7 @@ export class LoginRequest {
     Password:string = "";
     Token?: string;
     idCliente?: any; // si es importante para setearlo en localstorage
+    Nombre:string = "";
+    Apellido:string = "";
   }
   
